@@ -21,27 +21,27 @@ and [other
 options](http://tex.stackexchange.com/questions/341/how-to-create-posters-using-latex). Whereas
 the ready-made layouts are useful for fast poster design, they also
 limit the available options as the graphical elements are laid out as
-tightly defined text boxes, which is not suitable for all purposes,
-and mixing ready-made styles with free design is potentially
-confusing. I also bumped into some problems in incorporating R code
-with the baposter.
+tightly defined text boxes. This is not suitable for all purposes, and
+mixing ready-made styles with free design is potentially confusing. I
+also bumped into some problems in incorporating R code with some of
+these templates.
 
-The
+We achieved our goal by the
 [LaTeX](http://www.latex-project.org/)/[tikz](http://sourceforge.net/projects/pgf/)
-combination allows reproducible design of arbitrary poster layouts and
-schematic figures, as well as automated numbering of figures and
-references. The
+combination which allows reproducible design of arbitrary poster
+layouts and schematic figures, as well as automated numbering of
+figures and references. The
 [R](http://www.r-project.org)/[Sweave](https://www.statistik.lmu.de/~leisch/Sweave/)
-allows incorporating R code and output (figures, tables, text). The
+allows incorporation of R code and output (figures, tables, text). The
 [a0poster
 style](http://www.ctan.org/tex-archive/macros/latex/contrib/a0poster)
 provided appropriate font sizes and other LaTeX utilities for
 posters. If you are a frequent LaTeX user, we warmly recommend
-familiarizing with [tikz](http://www.texample.net/tikz/).
-
-
-For details, see the [poster
+familiarizing with [tikz](http://www.texample.net/tikz/). For further
+details, see the [poster
 sources](https://github.com/rOpenGov/poster/blob/master/2015-ICCSS/poster.Rnw).
+
+
 To reproduce [the poster in A0
 (PDF)](https://github.com/rOpenGov/poster/blob/master/2015-ICCSS/poster.pdf),
 clone the [rOpenGov poster
