@@ -47,5 +47,5 @@ library(knitr)
 knit2pdf("poster/2015-ICCSS/poster.Rnw")
 ```
 
-![posteri](poster.pdf)
+![posteri](poster.png)
 
