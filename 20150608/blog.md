@@ -41,4 +41,4 @@ confusing. I also bumped into some problems in incorporating R code
 with the baposter.
 
 
-[posteri](poster.png)
+![posteri](poster.png)
