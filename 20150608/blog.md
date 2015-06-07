@@ -10,20 +10,18 @@ Our poster includes the title field, coloured text boxes,
 automatically numbered references, R code and output figures. Running
 the poster source code downloads data with the [eurostat R
 package](http://github.com/rOpenGov/eurostat) and generates the poster
-figures. We achieved this with a combination of [LaTeX]()/[tikz](),
-and [R](http://www.r-project.org)/[Sweave](). The LaTeX/tikz
-combination allows reproducible design of arbitrary poster layouts and
-schematic figures, as well as automated numbering of figures and
-references. The R/Sweave allows incorporating R code and output
-(figures, tables, text). The [a0poster style]() provides appropriate
-font sizes and other LaTeX utilities for posters. If you are a
-frequent LaTeX user, we also warmly recommend familiarizing with
-[tikz](). For details, see the [poster
+figures. We achieved this with a combination of
+[LaTeX](http://www.latex-project.org/)/[tikz](http://sourceforge.net/projects/pgf/),
+and
+[R](http://www.r-project.org)/[Sweave](https://www.statistik.lmu.de/~leisch/Sweave/). The
+LaTeX/tikz combination allows reproducible design of arbitrary poster
+layouts and schematic figures, as well as automated numbering of
+figures and references. The R/Sweave allows incorporating R code and
+output (figures, tables, text). The [a0poster style](http://www.ctan.org/tex-archive/macros/latex/contrib/a0poster) provides
+appropriate font sizes and other LaTeX utilities for posters. If you
+are a frequent LaTeX user, we also warmly recommend familiarizing with
+[tikz](http://www.texample.net/tikz/). For details, see the [poster
 sources](https://github.com/rOpenGov/poster/blob/master/2015-ICCSS/poster.Rnw).
-
-To reproduce This generates [the poster in A0 (PDF)](https://github.com/rOpenGov/poster/blob/master/2015-ICCSS/poster.pdf), clone the [rOpenGov poster repository](https://github.com/rOpenGov/poster) and run the following commands in R:
-
-
 
 We ended up using plain tikz for designing the poster layout, although
 nice ready-made poster layouts were available by
@@ -41,4 +39,13 @@ confusing. I also bumped into some problems in incorporating R code
 with the baposter.
 
 
-![posteri](poster.png)
+To reproduce [the poster in A0 (PDF)](https://github.com/rOpenGov/poster/blob/master/2015-ICCSS/poster.pdf), clone the [rOpenGov poster repository](https://github.com/rOpenGov/poster) and run the following commands in R:
+
+
+```r
+library(knitr)
+knit2pdf("poster/2015-ICCSS/poster.Rnw")
+```
+
+![posteri](poster.pdf)
+
