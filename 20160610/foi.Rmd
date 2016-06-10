@@ -169,7 +169,7 @@ print(p)
 
 Top-10 publishers (out of `r nrow(dfs)`) correspond to `r round(100 * sum(dfs[["Cost (MEUR)"]][1:10])/sum(dfs[["Cost (MEUR)"]]))`% of the overall costs.
 
-```{r foi-timebypublisher2, message=FALSE, echo=FALSE, fig.width=10, fig.height=5, out.width="800px"}
+```{r foi-timebypublisher2, message=FALSE, echo=FALSE, fig.width=10, fig.height=5}
 # Price, Year : individual publishers compared
 # Growth percentage compared to previous year is shown
 dfs = df %>% group_by(Publisher) %>% summarise(Costs = sum(Price, na.rm = TRUE)) %>% arrange(desc(Costs))

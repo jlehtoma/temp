@@ -77,7 +77,7 @@ Total costs paid to scientific publishers by Finland 2010-2015. The annual incre
 
 Top-10 publishers (out of 6) correspond to NaN% of the overall costs.
 
-<img src="figure/foi-timebypublisher2-1.png" title="plot of chunk foi-timebypublisher2" alt="plot of chunk foi-timebypublisher2" width="800px" />
+![plot of chunk foi-timebypublisher2](figure/foi-timebypublisher2-1.png)
 
 
 
