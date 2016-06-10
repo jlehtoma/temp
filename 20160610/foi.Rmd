@@ -58,20 +58,24 @@ p <- ggplot(dfs, aes(x = Vuosi, y = Hinta)) +
      label = round(100 * diff(dfs$Hinta)/dfs$Hinta[-length(dfs$Hinta)], 1)), size = 8) + 
        ylab("Hinta (EUR)")
 print(p)
-
-# Kokonaishinta : all publishers
-dfs <- df %>% group_by(Kustantaja) %>% summarise(Hinta = sum(Hinta)) %>% arrange(desc(Hinta))
-p <- ggplot(dfs, aes(x = Kustantaja, y = Hinta)) +
-       geom_bar(stat = "identity") + ggtitle("Maksut yhteensä") +
-       ylab("Hinta (EUR)")
-print(p)
-
-# Top-10 publishers (out of nrow(dfs)) correspond to 77% overall costs
-sum(dfs$Hinta[1:10])/sum(dfs$Hinta)
-top.publishers <- as.character(dfs$Kustantaja[1:10])
 ```
 
+
+## Publication costs paid to top publishers 2010-2015
+
+```{r foi-toppublishercosts, message=FALSE, eval=TRUE, echo=FALSE, fig.show="hold", out.width="200px"}
+# Kokonaishinta : all publishers
+dfs <- df %>% group_by(Kustantaja) %>% summarise(Hinta = sum(Hinta)) %>% arrange(desc(Hinta))
+kable(head(dfs, 20))
+```
+
+
+## Cost development by publisher over time
+
+Top-10 publishers shown (out of `r nrow(dfs)`) correspond to `r sum(dfs$Hinta[1:10])/sum(dfs$Hinta)`% of the overall costs.
+
 ```{r foi-timebypublisher, message=FALSE, eval=TRUE, echo=FALSE, fig.show="hold", out.width="200px"}
+top.publishers <- as.character(dfs$Kustantaja[1:10])
 # Hinta, Vuosi : individual publishers compared
 # Growth percentage compared to previous year is shown
 dfs <- dplyr::filter(df, Kustantaja %in% top.publishers) %>% group_by(Vuosi, Kustantaja) %>% summarise(Hinta = sum(Hinta)) %>% arrange(Vuosi)

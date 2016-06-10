@@ -16,12 +16,39 @@ FOI request
 
 ### Data overview
 
+<img src="figure/foi-plots-1.png" title="plot of chunk foi-plots" alt="plot of chunk foi-plots" width="400px" /><img src="figure/foi-plots-2.png" title="plot of chunk foi-plots" alt="plot of chunk foi-plots" width="400px" /><img src="figure/foi-plots-3.png" title="plot of chunk foi-plots" alt="plot of chunk foi-plots" width="400px" /><img src="figure/foi-plots-4.png" title="plot of chunk foi-plots" alt="plot of chunk foi-plots" width="400px" /><img src="figure/foi-plots-5.png" title="plot of chunk foi-plots" alt="plot of chunk foi-plots" width="400px" /><img src="figure/foi-plots-6.png" title="plot of chunk foi-plots" alt="plot of chunk foi-plots" width="400px" /><img src="figure/foi-plots-7.png" title="plot of chunk foi-plots" alt="plot of chunk foi-plots" width="400px" />
 
-```
-## [1] 0.7685746
-```
 
-<img src="figure/foi-plots-1.png" title="plot of chunk foi-plots" alt="plot of chunk foi-plots" width="400px" /><img src="figure/foi-plots-2.png" title="plot of chunk foi-plots" alt="plot of chunk foi-plots" width="400px" /><img src="figure/foi-plots-3.png" title="plot of chunk foi-plots" alt="plot of chunk foi-plots" width="400px" /><img src="figure/foi-plots-4.png" title="plot of chunk foi-plots" alt="plot of chunk foi-plots" width="400px" /><img src="figure/foi-plots-5.png" title="plot of chunk foi-plots" alt="plot of chunk foi-plots" width="400px" /><img src="figure/foi-plots-6.png" title="plot of chunk foi-plots" alt="plot of chunk foi-plots" width="400px" /><img src="figure/foi-plots-7.png" title="plot of chunk foi-plots" alt="plot of chunk foi-plots" width="400px" /><img src="figure/foi-plots-8.png" title="plot of chunk foi-plots" alt="plot of chunk foi-plots" width="400px" />
+## Publication costs paid to top publishers 2010-2015
+
+
+|Kustantaja                                               |    Hinta|
+|:--------------------------------------------------------|--------:|
+|Elsevier                                                 | 43971227|
+|Wiley                                                    | 13321876|
+|Ebsco                                                    | 10297640|
+|Springer                                                 |  8319385|
+|ProQuest                                                 |  5709784|
+|Thomson Reuters                                          |  4042072|
+|SAGE Publications                                        |  3836765|
+|American Chemical Society (ACS)                          |  3655505|
+|Nature Publishing Group                                  |  3159795|
+|Taylor & Francis                                         |  2747357|
+|Institute of Electrical and Electronics Engineers (IEEE) |  2305962|
+|LM Tietopalvelut                                         |  2266371|
+|Duodecim                                                 |  1816408|
+|Talentum                                                 |  1360409|
+|Wolters Kluwer Health                                    |  1327242|
+|Suomen Standardisoimisliitto SFS                         |  1229727|
+|Emerald Group Publishing                                 |  1147285|
+|Ovid                                                     |  1000727|
+|Kielikone                                                |   998432|
+|Edita Publishing                                         |   863660|
+
+
+## Cost development by publisher over time
+
+Top-10 publishers shown (out of 244) correspond to 0.7685746% of the overall costs.
 
 <img src="figure/foi-timebypublisher-1.png" title="plot of chunk foi-timebypublisher" alt="plot of chunk foi-timebypublisher" width="200px" />
 
