@@ -6,7 +6,11 @@ output:
   md_document:
     variant: markdown_github
 ---
-
+<!--
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteIndexEntry{microbiome tutorial}
+  %\usepackage[utf8]{inputenc}
+-->
 
 
 
