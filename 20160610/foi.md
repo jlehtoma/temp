@@ -2,6 +2,9 @@
 title: "Scientific subscription costs in Finland 2010-2015"
 author: [Leo Lahti](http://www.iki.fi/Leo.Lahti)
 date: "2016-06-10"
+output: 
+  md_document:
+    variant: markdown_github
 ---
 
 
