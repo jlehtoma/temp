@@ -70,10 +70,10 @@ code](https://github.com/antagomir/temp/blob/master/20160610/foi.Rmd).
 ### Overall subscription costs 2010-2015
 
 ```{r foi-totalcosts, message=FALSE, echo=FALSE, fig.show="hold", out.width="430px", fig.width = 9, fig.height = 5}
-dfs = df %>% group_by(Organisaation.type) %>% summarise(Costs = sum(Price)/1e6) %>% arrange(Costs)
-dfs$Organisaation.type = factor(dfs$Organisaation.type, levels = as.character(dfs$Organisaation.type))
+dfs = df %>% group_by(Organization.type) %>% summarise(Costs = sum(Price)/1e6) %>% arrange(Costs)
+dfs$Organization.type = factor(dfs$Organization.type, levels = as.character(dfs$Organization.type))
 dfs$Percentage = round(100 * dfs$Costs/sum(dfs$Costs), 1)
-p <- ggplot(dfs, aes(x = Organisaation.type, y = Costs)) + geom_bar(stat = "identity", fill = "lightgray", color = "black") + ggtitle("Costs by organization type") + coord_flip() + xlab("") + ylab("Total Costs (MEUR)") + geom_text(aes(x=Organisaation.type, y=0, label=paste(Percentage, "%", sep = ""), hjust=ifelse(sign(Percentage)>0, 0, 0)), position = position_dodge(width=1), size = 7)
+p <- ggplot(dfs, aes(x = Organization.type, y = Costs)) + geom_bar(stat = "identity", fill = "lightgray", color = "black") + ggtitle("Costs by organization type") + coord_flip() + xlab("") + ylab("Total Costs (MEUR)") + geom_text(aes(x=Organization.type, y=0, label=paste(Percentage, "%", sep = ""), hjust=ifelse(sign(Percentage)>0, 0, 0)), position = position_dodge(width=1), size = 7)
 print(p)
 
 dfs = df %>% group_by(Category) %>% summarise(Costs = sum(Price)/1e6) %>% arrange(desc(Costs))
