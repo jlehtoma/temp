@@ -41,6 +41,13 @@ this data collection, made with a fully reproducible [source
 code](https://github.com/antagomir/temp/blob/master/20160610/foi.Rmd).
 
 
+### Data overview
+
+ * 128.889775 total costs 2010-2015
+ * 62 organizations 
+ * 244 publishers
+
+
 ### Overall subscription costs 2010-2015
 
 <img src="figure/foi-totalcosts-1.png" title="plot of chunk foi-totalcosts" alt="plot of chunk foi-totalcosts" width="430px" /><img src="figure/foi-totalcosts-2.png" title="plot of chunk foi-totalcosts" alt="plot of chunk foi-totalcosts" width="430px" />
