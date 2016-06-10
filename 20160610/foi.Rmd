@@ -33,7 +33,7 @@ df = rename(df, Price = Hinta)
 
 ### Total costs by organization 2010-2015
 
-```{r foi-totalcosts, message=FALSE, echo=FALSE, fig.show="hold", out.width="400px", fig.width = 10, fig.height = 7}
+```{r foi-totalcosts, message=FALSE, echo=FALSE, fig.show="hold", out.width="400px", fig.width = 10, fig.height = 5}
 dfs = df %>% group_by(Organisaation.tyyppi) %>% summarise(Costs = sum(Price)/1e6) %>% arrange(Costs)
 dfs$Organisaation.tyyppi = factor(dfs$Organisaation.tyyppi, levels = as.character(dfs$Organisaation.tyyppi))
 p <- ggplot(dfs, aes(x = Organisaation.tyyppi, y = Costs)) + geom_bar(stat = "identity") + ggtitle("Costs by organization type") + coord_flip() + xlab("") + ylab("Total Costs (MEUR)")
