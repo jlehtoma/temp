@@ -50,7 +50,16 @@ code](https://github.com/antagomir/temp/blob/master/20160610/foi.Rmd).
 
 ### Overall subscription costs 2010-2015
 
-<img src="figure/foi-totalcosts-1.png" title="plot of chunk foi-totalcosts" alt="plot of chunk foi-totalcosts" width="430px" /><img src="figure/foi-totalcosts-2.png" title="plot of chunk foi-totalcosts" alt="plot of chunk foi-totalcosts" width="430px" />
+
+```
+## Error in eval(expr, envir, enclos): unknown column 'Organisaation.type'
+```
+
+```
+## Error: Aesthetics must be either length 1 or the same as the data (1): x, y, label, hjust
+```
+
+<img src="figure/foi-totalcosts-1.png" title="plot of chunk foi-totalcosts" alt="plot of chunk foi-totalcosts" width="430px" />
 
 
 <img src="figure/foi-totalcosts2-1.png" title="plot of chunk foi-totalcosts2" alt="plot of chunk foi-totalcosts2" width="430px" /><img src="figure/foi-totalcosts2-2.png" title="plot of chunk foi-totalcosts2" alt="plot of chunk foi-totalcosts2" width="430px" />
