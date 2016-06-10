@@ -16,7 +16,7 @@ FOI request
 
 ### Overall costs 2010-2015
 
-<img src="figure/foi-totalcosts-1.png" title="plot of chunk foi-totalcosts" alt="plot of chunk foi-totalcosts" width="450px" /><img src="figure/foi-totalcosts-2.png" title="plot of chunk foi-totalcosts" alt="plot of chunk foi-totalcosts" width="450px" /><img src="figure/foi-totalcosts-3.png" title="plot of chunk foi-totalcosts" alt="plot of chunk foi-totalcosts" width="450px" /><img src="figure/foi-totalcosts-4.png" title="plot of chunk foi-totalcosts" alt="plot of chunk foi-totalcosts" width="450px" />
+<img src="figure/foi-totalcosts-1.png" title="plot of chunk foi-totalcosts" alt="plot of chunk foi-totalcosts" width="430px" /><img src="figure/foi-totalcosts-2.png" title="plot of chunk foi-totalcosts" alt="plot of chunk foi-totalcosts" width="430px" /><img src="figure/foi-totalcosts-3.png" title="plot of chunk foi-totalcosts" alt="plot of chunk foi-totalcosts" width="430px" /><img src="figure/foi-totalcosts-4.png" title="plot of chunk foi-totalcosts" alt="plot of chunk foi-totalcosts" width="430px" />
 
  * [Total costs by organization (complete table)](table/cost_by_organization.csv)
  * [Total costs by publisher (complete table)](table/cost_by_publisher.csv)
