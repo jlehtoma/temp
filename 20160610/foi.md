@@ -16,6 +16,11 @@ FOI request
 
 ### Total costs by organization 2010-2015
 
+
+```
+## Warning: Removed 16 rows containing missing values (position_stack).
+```
+
 <img src="figure/foi-totalcosts-1.png" title="plot of chunk foi-totalcosts" alt="plot of chunk foi-totalcosts" width="300px" /><img src="figure/foi-totalcosts-2.png" title="plot of chunk foi-totalcosts" alt="plot of chunk foi-totalcosts" width="300px" /><img src="figure/foi-totalcosts-3.png" title="plot of chunk foi-totalcosts" alt="plot of chunk foi-totalcosts" width="300px" /><img src="figure/foi-totalcosts-4.png" title="plot of chunk foi-totalcosts" alt="plot of chunk foi-totalcosts" width="300px" /><img src="figure/foi-totalcosts-5.png" title="plot of chunk foi-totalcosts" alt="plot of chunk foi-totalcosts" width="300px" />
 
  * [Total costs by organization (complete table)](table/cost_by_organization.csv).
