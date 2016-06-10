@@ -43,7 +43,7 @@ code](https://github.com/antagomir/temp/blob/master/20160610/foi.Rmd).
 
 ### Data overview
 
- * 128.889775 total costs 2010-2015
+ * Total costs for Finland 2010-2015: 128.9 million EUR 
  * 62 organizations 
  * 244 publishers
 
@@ -55,11 +55,6 @@ code](https://github.com/antagomir/temp/blob/master/20160610/foi.Rmd).
 
 <img src="figure/foi-totalcosts2-1.png" title="plot of chunk foi-totalcosts2" alt="plot of chunk foi-totalcosts2" width="430px" /><img src="figure/foi-totalcosts2-2.png" title="plot of chunk foi-totalcosts2" alt="plot of chunk foi-totalcosts2" width="430px" />
 
-### Total costs for Finland 2010-2015
-
-The total costs paid to scientific publishers by Finland 2010-2015. The annual increase is indicated.
-
-<img src="figure/foi-timeline-1.png" title="plot of chunk foi-timeline" alt="plot of chunk foi-timeline" width="400px" />
 
 
 ## Publication costs with top publishers 2010-2015
@@ -95,11 +90,14 @@ The total costs paid to scientific publishers by Finland 2010-2015. The annual i
 |Edita Publishing                                         |    0.863660|
 
 
-## Costs by publisher over time
+## Cost development over time
 
-Top-10 publishers (out of 244) correspond to 77% of the overall costs.
 
-![plot of chunk foi-timebypublisher](figure/foi-timebypublisher-1.png)
+Left: The total costs paid to scientific publishers by Finland 2010-2015. The annual increase is indicated.
+
+Right: Top-10 publishers (out of 244) correspond to 77% of the overall costs.
+
+![plot of chunk foi-timebypublisher](figure/foi-timebypublisher-1.png)![plot of chunk foi-timebypublisher](figure/foi-timebypublisher-2.png)
 
 
 

@@ -61,7 +61,7 @@ code](https://github.com/antagomir/temp/blob/master/20160610/foi.Rmd).
 
 ### Data overview
 
- * `r sum(df$Price)/1e6` total costs 2010-2015
+ * Total costs for Finland 2010-2015: `r round(sum(df$Price)/1e6, 1)` million EUR 
  * `r length(unique(df$Organization))` organizations 
  * `r length(unique(df$Publisher))` publishers
 
@@ -118,23 +118,6 @@ names(dfs) = c("Year", "Total (MEUR)")
 write.csv(dfs, file = "table/cost_by_year.csv", quote = F, row.names = F)
 ```
 
-### Total costs for Finland 2010-2015
-
-The total costs paid to scientific publishers by Finland 2010-2015. The annual increase is indicated.
-
-```{r foi-timeline, message=FALSE, eval=TRUE, echo=FALSE, fig.show="hold", out.width="400px"}
-# Price, Year : all publishers
-# Growth percentage compared to previous year is shown
-dfs = df %>% group_by(Year) %>% summarise(Costs = sum(Price)/1e6) 
-p <- ggplot(dfs, aes(x = Year, y = Costs)) +
-       geom_bar(stat = "identity") + ggtitle("Total costs for Finland") +
-       geom_text(data = dfs[-1,], aes(x = Year, y = 1.042 * Costs,
-     label = paste(round(100 * diff(dfs$Costs)/dfs$Costs[-length(dfs$Costs)], 1), "%", sep = "")   ),
-     	   size = 8) +
-       scale_x_continuous(breaks = 2010:2015, labels = c(2010:2015)) + 
-       ylab("Costs (MEUR)")
-print(p)
-```
 
 
 ## Publication costs with top publishers 2010-2015
@@ -153,11 +136,26 @@ kable(head(dfs, 20))
 ```
 
 
-## Costs by publisher over time
+## Cost development over time
 
-Top-10 publishers (out of `r nrow(dfs)`) correspond to `r round(100 * sum(dfs[["Cost (MEUR)"]][1:10])/sum(dfs[["Cost (MEUR)"]]))`% of the overall costs.
+
+Left: The total costs paid to scientific publishers by Finland 2010-2015. The annual increase is indicated.
+
+Right: Top-10 publishers (out of `r nrow(dfs)`) correspond to `r round(100 * sum(dfs[["Cost (MEUR)"]][1:10])/sum(dfs[["Cost (MEUR)"]]))`% of the overall costs.
 
 ```{r foi-timebypublisher, message=FALSE, echo=FALSE, fig.width=10, fig.height=5}
+# Price, Year : all publishers
+# Growth percentage compared to previous year is shown
+dfs = df %>% group_by(Year) %>% summarise(Costs = sum(Price)/1e6) 
+p <- ggplot(dfs, aes(x = Year, y = Costs)) +
+       geom_bar(stat = "identity") + ggtitle("Total costs for Finland") +
+       geom_text(data = dfs[-1,], aes(x = Year, y = 1.042 * Costs,
+     label = paste(round(100 * diff(dfs$Costs)/dfs$Costs[-length(dfs$Costs)], 1), "%", sep = "")   ),
+     	   size = 8) +
+       scale_x_continuous(breaks = 2010:2015, labels = c(2010:2015)) + 
+       ylab("Costs (MEUR)")
+print(p)
+
 # Price, Year : individual publishers compared
 # Growth percentage compared to previous year is shown
 top.publishers <- as.character(dfs$Publisher[1:10])
