@@ -33,22 +33,22 @@ df = rename(df, Price = Hinta)
 
 ### Total costs by organization 2010-2015
 
-```{r foi-totalcosts, message=FALSE, echo=FALSE, fig.show="hold", out.width="300px"}
+```{r foi-totalcosts, message=FALSE, echo=FALSE, fig.show="hold", out.width="400px"}
 dfs = df %>% group_by(Organisaation.tyyppi) %>% summarise(Costs = sum(Price)/1e6) %>% arrange(Costs)
 dfs$Organisaation.tyyppi = factor(dfs$Organisaation.tyyppi, levels = as.character(dfs$Organisaation.tyyppi))
-p <- ggplot(dfs, aes(x = Organisaation.tyyppi, y = Costs/1e6)) + geom_bar(stat = "identity") + ggtitle("Costs by organization type") + coord_flip() + xlab("") + ylab("Total Costs (MEUR)")
+p <- ggplot(dfs, aes(x = Organisaation.tyyppi, y = Costs)) + geom_bar(stat = "identity") + ggtitle("Costs by organization type") + coord_flip() + xlab("") + ylab("Total Costs (MEUR)")
 print(p)
 
 dfs = df %>% group_by(Organization) %>% summarise(Costs = sum(Price)/1e6) %>% arrange(desc(Costs))
 dfs$Organization = factor(dfs$Organization, levels = rev(as.character(dfs$Organization)))
-p <- ggplot(dfs[1:20,], aes(x = Organization, y = Costs/1e6)) + geom_bar(stat = "identity") + ggtitle("Costs by organization") + coord_flip() + xlab("") + ylab("Total Costs (MEUR)")
+p <- ggplot(dfs[1:20,], aes(x = Organization, y = Costs)) + geom_bar(stat = "identity") + ggtitle("Costs by organization") + coord_flip() + xlab("") + ylab("Total Costs (MEUR)")
 print(p)
 names(dfs) = c("Organization", "Total (MEUR)")
 write.csv(dfs, file = "table/cost_by_organization.csv", quote = F, row.names = F)
 
 dfs = df %>% group_by(Publisher) %>% summarise(Costs = sum(Price)/1e6) %>% arrange(desc(Costs))
 dfs$Publisher = factor(dfs$Publisher, levels = rev(as.character(dfs$Publisher)))
-p <- ggplot(dfs[1:20,], aes(x = Publisher, y = Costs/1e6)) + geom_bar(stat = "identity") + ggtitle("Costs by publisher") + coord_flip() + xlab("") + ylab("Total Costs (MEUR)")
+p <- ggplot(dfs[1:20,], aes(x = Publisher, y = Costs)) + geom_bar(stat = "identity") + ggtitle("Costs by publisher") + coord_flip() + xlab("") + ylab("Total Costs (MEUR)")
 print(p)
 names(dfs) = c("Publisher", "Total (MEUR)")
 write.csv(dfs, file = "table/cost_by_publisher.csv", quote = F, row.names = F)
@@ -56,7 +56,7 @@ write.csv(dfs, file = "table/cost_by_publisher.csv", quote = F, row.names = F)
 
 dfs = df %>% group_by(Material) %>% summarise(Costs = sum(Price)/1e6) %>% arrange(desc(Costs))
 dfs$Material = factor(dfs$Material, levels = rev(as.character(dfs$Material)))
-p <- ggplot(dfs[1:20,], aes(x = Material, y = Costs/1e6)) + geom_bar(stat = "identity") + ggtitle("Costs by material") + coord_flip() + xlab("") + ylab("Total Costs (MEUR)")
+p <- ggplot(dfs[1:20,], aes(x = Material, y = Costs)) + geom_bar(stat = "identity") + ggtitle("Costs by material") + coord_flip() + xlab("") + ylab("Total Costs (MEUR)")
 print(p)
 names(dfs) = c("Material", "Total (MEUR)")
 write.csv(dfs, file = "table/cost_by_material.csv", quote = F, row.names = F)
@@ -64,11 +64,10 @@ write.csv(dfs, file = "table/cost_by_material.csv", quote = F, row.names = F)
 
 dfs = df %>% group_by(Type) %>% summarise(Costs = sum(Price)/1e6) %>% arrange(desc(Costs))
 dfs$Type = factor(dfs$Type, levels = rev(as.character(dfs$Type)))
-p <- ggplot(dfs[1:20,], aes(x = Type, y = Costs/1e6)) + geom_bar(stat = "identity") + ggtitle("Costs by publication type") + coord_flip() + xlab("") + ylab("Total Costs (MEUR)")
+p <- ggplot(dfs, aes(x = Type, y = Costs)) + geom_bar(stat = "identity") + ggtitle("Costs by agreement type") + coord_flip() + xlab("") + ylab("Total Costs (MEUR)")
 print(p)
 names(dfs) = c("Type", "Total (MEUR)")
 write.csv(dfs, file = "table/cost_by_type.csv", quote = F, row.names = F)
-
 
 dfs = df %>% group_by(Year) %>% summarise(Costs = sum(Price)/1e6) %>% arrange(desc(Year))
 names(dfs) = c("Year", "Total (MEUR)")
