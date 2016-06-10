@@ -170,6 +170,7 @@ print(p)
 
 # Price, Year : individual publishers compared
 # Growth percentage compared to previous year is shown
+dfs = df %>% group_by(Publisher) %>% summarise(Costs = sum(Price, na.rm = TRUE)) %>% arrange(desc(Costs))
 top.publishers <- as.character(dfs$Publisher[1:10])
 dfs <- dplyr::filter(df, Publisher %in% top.publishers) %>% group_by(Year, Publisher) %>% summarise(Costs = sum(Price)/1e6) %>% arrange(Year)
 dfs$Publisher <- factor(dfs$Publisher, levels = top.publishers)
@@ -180,6 +181,8 @@ p <- ggplot(dfs, aes(x = Year, y = Costs, color = Publisher)) +
        ylab("Price (MEUR)") 
 print(p)
 ```
+
+
 
 
 

@@ -81,3 +81,5 @@ Right: Top-10 publishers (out of 6) correspond to NaN% of the overall costs.
 
 
 
+
+
