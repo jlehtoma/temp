@@ -1,59 +1,103 @@
+---
+title: "Scientific subscription costs in Finland 2010-2015"
+author: Leo Lahti
+date: "2016-06-10"
+output: 
+  md_document:
+    variant: markdown_github
+---
+
+
+
+
+
 Subscription costs for individual publishers 2010-2015: the Finnish case
-========================================================================
+===========
+
 
 ### Background
 
-Following [Tim Gowers FOI request on scientific subscription costs in UK](http://gowers.wordpress.com/2014/04/24/elsevier-journals-some-facts/), we made a similar request in Finland together with [OKF Finland](http://fi.okfn.org/wg/openscience/) and [other open science enthusiasts](https://www.facebook.com/groups/241398182642057/permalink/411482855633588).
+Following [Tim Gowers FOI request on scientific subscription costs in
+UK](http://gowers.wordpress.com/2014/04/24/elsevier-journals-some-facts/),
+we made a similar request in Finland together with [OKF
+Finland](http://fi.okfn.org/wg/openscience/) and [other open science
+enthusiasts](https://www.facebook.com/groups/241398182642057/permalink/411482855633588).
 
-I sent the FOI request to Finnish universities in summer 2014. After their denial to release the data we appealed in court, which decided the case positive for us in August 2015. The Finnish Ministry of Education [Open Science Initiative](http://openscience.fi) then collected and organized the data, which has now been released on [their website](). The overall process is summarized in another [blog post]().
+I sent the FOI request to Finnish universities in summer 2014. After
+their denial to release the data we appealed in court, which decided
+the case positive for us in August 2015. The Finnish Ministry of
+Education [Open Science Initiative](http://openscience.fi) then
+collected and organized the data, which has now been released on
+[their website](). The overall process is summarized in another [blog
+post]().
 
-Related data have been previously collected in a few countries (see Stuart Lawson's [recent post](http://stuartlawson.org/2016/06/publicly-available-data-on-international-journal-subscription-costs), However, Finland is now one of the first countries (after US and UK) where the subscription costs are available over several years at the level of individual publishers. Here, I present preliminary analysis of this data collection. The fully reproducible source code of this document is [available](https://github.com/antagomir/temp/blob/master/20160610/foi.Rmd).
+Related data have been previously collected in a few countries (see
+Stuart Lawson's [recent
+post](http://stuartlawson.org/2016/06/publicly-available-data-on-international-journal-subscription-costs),
+However, Finland is now one of the first countries (after US and UK)
+where the subscription costs are available over several years at the
+level of individual publishers. Here, I present preliminary analysis
+of this data collection. The fully reproducible source code of this
+document is
+[available](https://github.com/antagomir/temp/blob/master/20160610/foi.Rmd).
 
-### Overall costs 2010-2015
 
-<img src="foi_files/figure-markdown_github/foi-totalcosts-1.png" width="430px" /><img src="foi_files/figure-markdown_github/foi-totalcosts-2.png" width="430px" /><img src="foi_files/figure-markdown_github/foi-totalcosts-3.png" width="430px" /><img src="foi_files/figure-markdown_github/foi-totalcosts-4.png" width="430px" />
+
+
+### Overall subscription costs 2010-2015
+
+<img src="figure/foi-totalcosts-1.png" title="plot of chunk foi-totalcosts" alt="plot of chunk foi-totalcosts" width="430px" /><img src="figure/foi-totalcosts-2.png" title="plot of chunk foi-totalcosts" alt="plot of chunk foi-totalcosts" width="430px" /><img src="figure/foi-totalcosts-3.png" title="plot of chunk foi-totalcosts" alt="plot of chunk foi-totalcosts" width="430px" /><img src="figure/foi-totalcosts-4.png" title="plot of chunk foi-totalcosts" alt="plot of chunk foi-totalcosts" width="430px" />
 
 ### Total costs for Finland 2010-2015
 
 The total costs paid to scientific publishers by Finland 2010-2015. The annual increase is indicated.
 
-<img src="foi_files/figure-markdown_github/foi-timeline-1.png" width="400px" />
+<img src="figure/foi-timeline-1.png" title="plot of chunk foi-timeline" alt="plot of chunk foi-timeline" width="400px" />
 
-Publication costs with top publishers 2010-2015
------------------------------------------------
 
--   [Total costs by organization (complete table)](table/cost_by_organization.csv)
--   [Total costs by publisher (complete table)](table/cost_by_publisher.csv)
--   [Total costs by material](table/cost_by_material.csv)
--   [Total costs by type](table/cost_by_type.csv)
--   [Total costs by year](table/cost_by_year.csv)
+## Publication costs with top publishers 2010-2015
 
-| Publisher                                                |  Cost (MEUR)|
-|:---------------------------------------------------------|------------:|
-| Elsevier                                                 |    43.971227|
-| Wiley                                                    |    13.321876|
-| Ebsco                                                    |    10.297640|
-| Springer                                                 |     8.319385|
-| ProQuest                                                 |     5.709784|
-| Thomson Reuters                                          |     4.042072|
-| SAGE Publications                                        |     3.836765|
-| American Chemical Society (ACS)                          |     3.655505|
-| Nature Publishing Group                                  |     3.159795|
-| Taylor & Francis                                         |     2.747357|
-| Institute of Electrical and Electronics Engineers (IEEE) |     2.305962|
-| LM Tietopalvelut                                         |     2.266371|
-| Duodecim                                                 |     1.816408|
-| Talentum                                                 |     1.360409|
-| Wolters Kluwer Health                                    |     1.327242|
-| Suomen Standardisoimisliitto SFS                         |     1.229727|
-| Emerald Group Publishing                                 |     1.147285|
-| Ovid                                                     |     1.000727|
-| Kielikone                                                |     0.998432|
-| Edita Publishing                                         |     0.863660|
+ * [Total costs by organization (complete table)](table/cost_by_organization.csv)
+ * [Total costs by publisher (complete table)](table/cost_by_publisher.csv)
+ * [Total costs by material](table/cost_by_material.csv)
+ * [Total costs by type](table/cost_by_type.csv)
+ * [Total costs by year](table/cost_by_year.csv)   
 
-Costs by publisher over time
-----------------------------
+
+|Publisher                                                | Cost (MEUR)|
+|:--------------------------------------------------------|-----------:|
+|Elsevier                                                 |   43.971227|
+|Wiley                                                    |   13.321876|
+|Ebsco                                                    |   10.297640|
+|Springer                                                 |    8.319385|
+|ProQuest                                                 |    5.709784|
+|Thomson Reuters                                          |    4.042072|
+|SAGE Publications                                        |    3.836765|
+|American Chemical Society (ACS)                          |    3.655505|
+|Nature Publishing Group                                  |    3.159795|
+|Taylor & Francis                                         |    2.747357|
+|Institute of Electrical and Electronics Engineers (IEEE) |    2.305962|
+|LM Tietopalvelut                                         |    2.266371|
+|Duodecim                                                 |    1.816408|
+|Talentum                                                 |    1.360409|
+|Wolters Kluwer Health                                    |    1.327242|
+|Suomen Standardisoimisliitto SFS                         |    1.229727|
+|Emerald Group Publishing                                 |    1.147285|
+|Ovid                                                     |    1.000727|
+|Kielikone                                                |    0.998432|
+|Edita Publishing                                         |    0.863660|
+
+
+## Costs by publisher over time
 
 Top-10 publishers (out of 244) correspond to 77% of the overall costs.
 
-![](foi_files/figure-markdown_github/foi-timebypublisher-1.png)
+![plot of chunk foi-timebypublisher](figure/foi-timebypublisher-1.png)
+
+
+
+
+
+```
+## Error in html_screenshot(x): Please install the webshot package (if not on CRAN, try devtools::install_github("wch/webshot"))
+```

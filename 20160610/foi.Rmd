@@ -61,9 +61,9 @@ document is
 
 
 
-### Overall costs 2010-2015
+### Overall subscription costs 2010-2015
 
-```{r foi-totalcosts, message=FALSE, echo=FALSE, fig.show="hold", out.width="430px", fig.width = 8, fig.height = 5}
+```{r foi-totalcosts, message=FALSE, echo=FALSE, fig.show="hold", out.width="430px", fig.width = 9, fig.height = 5}
 dfs = df %>% group_by(Organisaation.tyyppi) %>% summarise(Costs = sum(Price)/1e6) %>% arrange(Costs)
 dfs$Organisaation.tyyppi = factor(dfs$Organisaation.tyyppi, levels = as.character(dfs$Organisaation.tyyppi))
 p <- ggplot(dfs, aes(x = Organisaation.tyyppi, y = Costs)) + geom_bar(stat = "identity") + ggtitle("Costs by organization type") + coord_flip() + xlab("") + ylab("Total Costs (MEUR)")
@@ -86,7 +86,9 @@ write.csv(dfs, file = "table/cost_by_publisher.csv", quote = F, row.names = F)
 
 dfs = df %>% group_by(Material) %>% summarise(Costs = sum(Price)/1e6) %>% arrange(desc(Costs))
 dfs$Material = factor(dfs$Material, levels = rev(as.character(dfs$Material)))
-p <- ggplot(dfs[1:20,], aes(x = Material, y = Costs)) + geom_bar(stat = "identity") + ggtitle("Costs by material") + coord_flip() + xlab("") + ylab("Total Costs (MEUR)")
+# Only consider the high-level categories
+dfss = dfs[-grep(";", dfs$Material),]
+p <- ggplot(dfss, aes(x = Material, y = Costs)) + geom_bar(stat = "identity") + ggtitle("Costs by material") + coord_flip() + xlab("") + ylab("Total Costs (MEUR)")
 print(p)
 names(dfs) = c("Material", "Total (MEUR)")
 write.csv(dfs, file = "table/cost_by_material.csv", quote = F, row.names = F)
@@ -155,3 +157,15 @@ print(p)
 ```
 
 
+
+
+```{r foi-test, message=FALSE, echo=FALSE, fig.width=10, fig.height=5}
+URL <- paste0(
+        "https://cdn.rawgit.com/christophergandrud/networkD3/",
+        "master/JSONdata/energy.json")
+Energy <- jsonlite::fromJSON(URL)
+# Plot
+sankeyNetwork(Links = Energy$links, Nodes = Energy$nodes, Source = "source",
+             Target = "target", Value = "value", NodeID = "name",
+             units = "TWh", fontSize = 12, nodeWidth = 30)
+```
