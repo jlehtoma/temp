@@ -99,5 +99,5 @@ Top-10 publishers (out of 244) correspond to 77% of the overall costs.
 
 
 ```
-## Error in html_screenshot(x): Please install the webshot package (if not on CRAN, try devtools::install_github("wch/webshot"))
+## Error in find_phantom(): PhantomJS not found. You can install it with webshot::install_phantomjs(). If it is installed, please make sure the phantomjs executable can be found via the PATH variable.
 ```
