@@ -46,13 +46,23 @@ code](https://github.com/antagomir/temp/blob/master/20160610/foi.Rmd).
 
 
 
+
+
+
+```r
+library(DT)
+DT::datatable(iris)
+```
+
+![plot of chunk unnamed-chunk-1](figure/unnamed-chunk-1-1.png)
+
 ## Overall publication costs 2010-2015
 
  * Total costs for Finland 2010-2015: 128.9 million EUR
- * 62 organizations ([costs by organization](table/cost_by_organization_year.csv))
- * 244 publishers ([costs by publisher](table/cost_by_publisher_year.csv))
- * [Costs by category](table/cost_by_category.csv)
- * [Costs by agreement type](table/cost_by_type.csv)
+ * 62 organizations ([annual costs by organization](table/cost_by_organization_year.csv))
+ * 244 publishers ([annual costs by publisher](table/cost_by_publisher_year.csv))
+ * [Total costs by category](table/cost_by_category.csv)
+ * [Total costs by agreement type](table/cost_by_type.csv)
 
 
 <img src="figure/foi-totalcosts-1.png" title="plot of chunk foi-totalcosts" alt="plot of chunk foi-totalcosts" width="430px" /><img src="figure/foi-totalcosts-2.png" title="plot of chunk foi-totalcosts" alt="plot of chunk foi-totalcosts" width="430px" />
