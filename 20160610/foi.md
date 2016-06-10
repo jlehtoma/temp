@@ -75,7 +75,9 @@ Right: Top-10 publishers (out of 6) correspond to NaN% of the overall costs.
 
 
 
-<img src="figure/foi-timebypublisher-1.png" title="plot of chunk foi-timebypublisher" alt="plot of chunk foi-timebypublisher" width="420px" /><img src="figure/foi-timebypublisher-2.png" title="plot of chunk foi-timebypublisher" alt="plot of chunk foi-timebypublisher" width="420px" />
+![plot of chunk foi-costbytime](figure/foi-costbytime-1.png)
+
+![plot of chunk foi-timebypublisher2](figure/foi-timebypublisher2-1.png)
 
 
 
