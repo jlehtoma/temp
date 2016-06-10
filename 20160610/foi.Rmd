@@ -70,11 +70,11 @@ dfs$Percentage = round(100 * dfs$Costs/sum(dfs$Costs), 1)
 names(dfs) = c("Category", "Total (MEUR)", "Percent (%)")
 write.csv(dfs, file = "table/cost_by_category.csv", quote = F, row.names = F)
 
-
 dfs <- df %>% group_by(Year, Organization) %>% summarise(Costs = sum(Price, na.rm = TRUE)/1e6) %>% arrange(Year) %>% spread(Year, Costs)
 dfs[is.na(dfs)] = 0
 dfs$Total = rowSums(dfs[, as.character(2010:2015)], na.rm = TRUE)
 dfs$Percentage = round(100 * dfs$Total/sum(dfs$Total), 1)
+dfs = dfs %>% arrange(desc(Percentage))
 names(dfs) = c("Organization", paste(as.character(2010:2015), "(MEUR)"), "Total (MEUR)", "Percent (%)")
 write.csv(dfs, file = "table/cost_by_organization_year.csv", quote = F, row.names = F)
 
@@ -82,6 +82,7 @@ dfs <- df %>% group_by(Year, Publisher) %>% summarise(Costs = sum(Price, na.rm =
 dfs[is.na(dfs)] = 0
 dfs$Total = rowSums(dfs[, as.character(2010:2015)], na.rm = TRUE)
 dfs$Percentage = round(100 * dfs$Total/sum(dfs$Total), 1)
+dfs = dfs %>% arrange(desc(Percentage))
 names(dfs) = c("Publisher", paste(as.character(2010:2015), "(MEUR)"), "Total (MEUR)", "Percent (%)")
 write.csv(dfs, file = "table/cost_by_publisher_year.csv", quote = F, row.names = F)
 
@@ -92,13 +93,20 @@ names(dfs) = c("Type", "Total (MEUR)", "Percent (%)")
 write.csv(dfs, file = "table/cost_by_type.csv", quote = F, row.names = F)
 ```
 
+
+
+```{r}
+library(DT)
+DT::datatable(iris)
+```
+
 ## Overall publication costs 2010-2015
 
  * Total costs for Finland 2010-2015: `r round(sum(df$Price)/1e6, 1)` million EUR
- * `r length(unique(df$Organization))` organizations ([costs by organization](table/cost_by_organization_year.csv))
- * `r length(unique(df$Publisher))` publishers ([costs by publisher](table/cost_by_publisher_year.csv))
- * [Costs by category](table/cost_by_category.csv)
- * [Costs by agreement type](table/cost_by_type.csv)
+ * `r length(unique(df$Organization))` organizations ([annual costs by organization](table/cost_by_organization_year.csv))
+ * `r length(unique(df$Publisher))` publishers ([annual costs by publisher](table/cost_by_publisher_year.csv))
+ * [Total costs by category](table/cost_by_category.csv)
+ * [Total costs by agreement type](table/cost_by_type.csv)
 
 
 ```{r foi-totalcosts, message=FALSE, echo=FALSE, fig.show="hold", out.width="430px", fig.width = 7, fig.height = 5}
