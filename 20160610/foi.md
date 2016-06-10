@@ -14,22 +14,20 @@ FOI request
 
 
 
-### Total costs by organization 2010-2015
+### Overall costs 2010-2015
 
-<img src="figure/foi-totalcosts-1.png" title="plot of chunk foi-totalcosts" alt="plot of chunk foi-totalcosts" width="400px" /><img src="figure/foi-totalcosts-2.png" title="plot of chunk foi-totalcosts" alt="plot of chunk foi-totalcosts" width="400px" /><img src="figure/foi-totalcosts-3.png" title="plot of chunk foi-totalcosts" alt="plot of chunk foi-totalcosts" width="400px" /><img src="figure/foi-totalcosts-4.png" title="plot of chunk foi-totalcosts" alt="plot of chunk foi-totalcosts" width="400px" /><img src="figure/foi-totalcosts-5.png" title="plot of chunk foi-totalcosts" alt="plot of chunk foi-totalcosts" width="400px" />
+<img src="figure/foi-totalcosts-1.png" title="plot of chunk foi-totalcosts" alt="plot of chunk foi-totalcosts" width="450px" /><img src="figure/foi-totalcosts-2.png" title="plot of chunk foi-totalcosts" alt="plot of chunk foi-totalcosts" width="450px" /><img src="figure/foi-totalcosts-3.png" title="plot of chunk foi-totalcosts" alt="plot of chunk foi-totalcosts" width="450px" /><img src="figure/foi-totalcosts-4.png" title="plot of chunk foi-totalcosts" alt="plot of chunk foi-totalcosts" width="450px" />
 
- * [Total costs by organization (complete table)](table/cost_by_organization.csv).
- * [Total costs by publisher (complete table)](table/cost_by_publisher.csv).
- * [Total costs by material](table/cost_by_material.csv).
- * [Total costs by type](table/cost_by_type.csv).
- * [Total costs by year](table/cost_by_year.csv).   
-
-
+ * [Total costs by organization (complete table)](table/cost_by_organization.csv)
+ * [Total costs by publisher (complete table)](table/cost_by_publisher.csv)
+ * [Total costs by material](table/cost_by_material.csv)
+ * [Total costs by type](table/cost_by_type.csv)
+ * [Total costs by year](table/cost_by_year.csv)   
 
 
-```
-## Error in eval(expr, envir, enclos): object 'Costs' not found
-```
+### Prices development over time
+
+The total costs Finland paid to scientific publishers 2010-2015. The annual increase is indicated.
 
 <img src="figure/foi-plots-1.png" title="plot of chunk foi-plots" alt="plot of chunk foi-plots" width="400px" />
 
