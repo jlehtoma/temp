@@ -164,18 +164,19 @@ p <- ggplot(dfs, aes(x = Year, y = Costs)) +
        scale_x_continuous(breaks = 2010:2015, labels = c(2010:2015)) + 
        ylab("Costs (MEUR)")
 print(p)
+
+dfs = df %>% group_by(Publisher) %>% summarise(Costs = sum(Price, na.rm = TRUE)) %>% arrange(desc(Costs))
 ```
 
 
 Top-10 publishers (out of `r nrow(dfs)`) correspond to `r round(100 * sum(dfs[["Cost (MEUR)"]][1:10])/sum(dfs[["Cost (MEUR)"]]))`% of the overall costs.
 
 ```{r foi-timebypublisher2, message=FALSE, echo=FALSE, fig.width=15, fig.height=5}
-# Price, Year : individual publishers compared
-# Growth percentage compared to previous year is shown
-dfs = df %>% group_by(Publisher) %>% summarise(Costs = sum(Price, na.rm = TRUE)) %>% arrange(desc(Costs))
 top.publishers <- as.character(dfs$Publisher[1:10])
 dfs <- dplyr::filter(df, Publisher %in% top.publishers) %>% group_by(Year, Publisher) %>% summarise(Costs = sum(Price)/1e6) %>% arrange(Year)
 dfs$Publisher <- factor(dfs$Publisher, levels = top.publishers)
+# Price, Year : individual publishers compared
+# Growth percentage compared to previous year is shown
 p <- ggplot(dfs, aes(x = Year, y = Costs, color = Publisher)) +
        geom_point() +
        geom_line() +       
