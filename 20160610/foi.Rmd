@@ -171,7 +171,7 @@ dfs = df %>% group_by(Publisher) %>% summarise(Costs = sum(Price, na.rm = TRUE))
 
 Top-10 publishers (out of `r nrow(dfs)`) correspond to `r round(100 * sum(dfs[["Costs"]][1:10])/sum(dfs[["Costs"]]))`% of the overall costs.
 
-```{r foi-timebypublisher2, message=FALSE, echo=FALSE, fig.width=20, fig.heigth=5}
+```{r foi-timebypublisher2, message=FALSE, echo=FALSE, fig.width=15, fig.heigth=5}
 top.publishers <- as.character(dfs$Publisher[1:10])
 dfs <- dplyr::filter(df, Publisher %in% top.publishers) %>% group_by(Year, Publisher) %>% summarise(Costs = sum(Price)/1e6) %>% arrange(Year)
 dfs$Publisher <- factor(dfs$Publisher, levels = top.publishers)
