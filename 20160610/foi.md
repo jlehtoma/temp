@@ -1,13 +1,42 @@
 ---
 title: "Scientific subscription costs in Finland 2010-2015"
-author: Leo Lahti
+author: [Leo Lahti](http://www.iki.fi/Leo.Lahti)
 date: "2016-06-10"
 ---
 
 
-FOI request
+
+
+
+Subscription costs 2010-2015: the Finnish case
 ===========
 
+### Background
+
+Following [Tim Gowers successful FOI request on scientific
+subscription costs in
+UK](http://gowers.wordpress.com/2014/04/24/elsevier-journals-some-facts/),
+we realized by the [OKF Finland](http://fi.okfn.org/wg/openscience/)
+and [other open science
+enthusiasts](https://www.facebook.com/groups/241398182642057/permalink/411482855633588)
+that a similar FOI request could be made in Finland. I left the FOI
+request to Finnish universities in summer 2014. After their denial and
+esoteric explanations we appealed to court. The positive decision was
+given in August 2015. Then it took another year to collect and tidy up
+all the information across the Finnish universities and other
+institutions. The process is summarized in another [blog post](). The
+Finnish Ministry of Education [Open Science
+Initiative](http://openscience.fi) then collected and organized the
+data, which has now been released on [their website]().
+
+Whereas related data have been collected in a few countries (see
+Stuart Lawson's [recent
+post](http://stuartlawson.org/2016/06/publicly-available-data-on-international-journal-subscription-costs),
+Finland is one of the very first countries (after US and UK) where the
+subscription costs are available for individual publishers over a
+several years time span. Here, I present preliminary analysis of this
+open data set. The fully reproducible source code of this document is
+[available](https://github.com/antagomir/temp/blob/master/20160610/foi.Rmd).
 
 
 
