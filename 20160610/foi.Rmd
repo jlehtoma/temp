@@ -149,10 +149,7 @@ dfs = df %>% group_by(Year) %>% summarise(Costs = sum(Price)/1e6) %>% arrange(de
 names(dfs) = c("Year", "Total (MEUR)")
 ```
 
-Left: The total costs paid to scientific publishers by Finland 2010-2015. The annual increase is indicated.
-
-Right: Top-10 publishers (out of `r nrow(dfs)`) correspond to `r round(100 * sum(dfs[["Cost (MEUR)"]][1:10])/sum(dfs[["Cost (MEUR)"]]))`% of the overall costs.
-
+Total costs paid to scientific publishers by Finland 2010-2015. The annual increase is indicated.
 
 
 ```{r foi-costbytime, message=FALSE, echo=FALSE, fig.width=8, fig.height=5}
@@ -169,7 +166,10 @@ p <- ggplot(dfs, aes(x = Year, y = Costs)) +
 print(p)
 ```
 
-```{r foi-timebypublisher2, message=FALSE, echo=FALSE, fig.width=8, fig.height=5}
+
+Top-10 publishers (out of `r nrow(dfs)`) correspond to `r round(100 * sum(dfs[["Cost (MEUR)"]][1:10])/sum(dfs[["Cost (MEUR)"]]))`% of the overall costs.
+
+```{r foi-timebypublisher2, message=FALSE, echo=FALSE, fig.width=8, fig.height=5, out.width="700px"}
 # Price, Year : individual publishers compared
 # Growth percentage compared to previous year is shown
 dfs = df %>% group_by(Publisher) %>% summarise(Costs = sum(Price, na.rm = TRUE)) %>% arrange(desc(Costs))
