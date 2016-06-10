@@ -1,63 +1,63 @@
-Organization,Total (MEUR)
-Helsingin yliopisto,24
-Aalto-yliopisto,16
-Oulun yliopisto,11
-Turun yliopisto,11
-Itä-Suomen yliopisto,9
-Jyväskylän yliopisto,8
-Tampereen teknillinen yliopisto,7
-Tampereen yliopisto,7
-Åbo Akademi,5
-Teknologian tutkimuskeskus (VTT),4
-Hanken Svenska handelshögskolan,2
-Lappeenrannan teknillinen yliopisto,2
-Centria-ammattikorkeakoulu,1
-Diakonia-ammattikorkeakoulu (Diak),1
-Geologian tutkimuskeskus (GTK),1
-Haaga-Helia ammattikorkeakoulu,1
-Ilmatieteen laitos,1
-Jyväskylän ammattikorkeakoulu (JAMK),1
-Kansaneläkelaitos (Kela),1
-Lääkealan turvallisuus- ja kehittämiskeskus Fimea,1
-Lahden ammattikorkeakoulu (LAMK),1
-Lapin yliopisto,1
-Laurea-ammattikorkeakoulu,1
-Maa- ja elintarviketalouden tutkimuskeskus (MTT),1
-Metropolia Ammattikorkeakoulu,1
-Metsäntutkimuslaitos (Metla),1
-Oulun ammattikorkeakoulu,1
-Satakunnan ammattikorkeakoulu (SAMK),1
-Savonia-ammattikorkeakoulu,1
-Seinäjoen ammattikorkeakoulu (SeAMK),1
-Suomen ympäristökeskus (SYKE),1
-Tampereen ammattikorkeakoulu (TAMK),1
-Turun ammattikorkeakoulu,1
-Työterveyslaitos (TTL),1
-Vaasan yliopisto,1
-Valtion taloudellinen tutkimuskeskus (VATT),1
-Arcada ammattikorkeakoulu,0
-Eduskunnan kirjasto,0
-Hämeen ammattikorkeakoulu (HAMK),0
-Helsingin yliopisto/Kansalliskirjasto,0
-Humanistinen ammattikorkeakoulu (Humak),0
-Kaakkois-Suomen ammattikorkeakoulu (XAMK),0
-Kajaanin ammattikorkeakoulu (KAMK),0
-Kansallisgallerian kirjasto,0
-Kansalliskirjasto,0
-Karelia-ammattikorkeakoulu,0
-Kuvataideakatemia,0
-Kymenlaakson ammattikorkeakoulu (KyAMK),0
-Lapin ammattikorkeakoulu,0
-Luonnonvarakeskus (Luke),0
-Maanmittauslaitos,0
-Mikkelin ammattikorkeakoulu (MAMK),0
-Poliisiammattikorkeakoulu (Polamk),0
-Riista- ja kalatalouden tutkimuslaitos (RKTL),0
-Saimaan ammattikorkeakoulu,0
-Sibelius-Akatemia,0
-Suomen Akatemia,0
-Taideyliopisto,0
-Teatterikorkeakoulu,0
-Ulkopoliittinen instituutti (UPI),0
-Vaasan ammattikorkeakoulu (VAMK),0
-Yrkeshögskolan Novia,0
+Organization,Total (EUR)
+Helsingin yliopisto,24.385039
+Aalto-yliopisto,15.983727
+Turun yliopisto,11.044857
+Oulun yliopisto,10.835403
+Itä-Suomen yliopisto,8.728525
+Jyväskylän yliopisto,8.080883
+Tampereen yliopisto,6.823551
+Tampereen teknillinen yliopisto,6.815275
+Åbo Akademi,4.957468
+Teknologian tutkimuskeskus (VTT),3.952625
+Lappeenrannan teknillinen yliopisto,1.645335
+Hanken Svenska handelshögskolan,1.502531
+Vaasan yliopisto,1.423332
+Työterveyslaitos (TTL),1.239058
+Lapin yliopisto,1.066511
+Suomen ympäristökeskus (SYKE),1.054946
+Haaga-Helia ammattikorkeakoulu,1.047538
+Tampereen ammattikorkeakoulu (TAMK),0.957929
+Turun ammattikorkeakoulu,0.917522
+Geologian tutkimuskeskus (GTK),0.864089
+Seinäjoen ammattikorkeakoulu (SeAMK),0.749335
+Kansaneläkelaitos (Kela),0.735548
+Savonia-ammattikorkeakoulu,0.731556
+Oulun ammattikorkeakoulu,0.719613
+Laurea-ammattikorkeakoulu,0.718098
+Maa- ja elintarviketalouden tutkimuskeskus (MTT),0.71576
+Satakunnan ammattikorkeakoulu (SAMK),0.673822
+Lahden ammattikorkeakoulu (LAMK),0.642427
+Metropolia Ammattikorkeakoulu,0.619759
+Ilmatieteen laitos,0.619749
+Jyväskylän ammattikorkeakoulu (JAMK),0.603296
+Centria-ammattikorkeakoulu,0.575092
+Lääkealan turvallisuus- ja kehittämiskeskus Fimea,0.57093
+Metsäntutkimuslaitos (Metla),0.542698
+Diakonia-ammattikorkeakoulu (Diak),0.52029
+Valtion taloudellinen tutkimuskeskus (VATT),0.502429
+Kymenlaakson ammattikorkeakoulu (KyAMK),0.467102
+Riista- ja kalatalouden tutkimuslaitos (RKTL),0.43249
+Eduskunnan kirjasto,0.418075
+Arcada ammattikorkeakoulu,0.416734
+Luonnonvarakeskus (Luke),0.393444
+Yrkeshögskolan Novia,0.332868
+Hämeen ammattikorkeakoulu (HAMK),0.329048
+Vaasan ammattikorkeakoulu (VAMK),0.324696
+Saimaan ammattikorkeakoulu,0.317217
+Mikkelin ammattikorkeakoulu (MAMK),0.299381
+Kajaanin ammattikorkeakoulu (KAMK),0.25135
+Lapin ammattikorkeakoulu,0.237111
+Taideyliopisto,0.19735
+Suomen Akatemia,0.140876
+Humanistinen ammattikorkeakoulu (Humak),0.134455
+Poliisiammattikorkeakoulu (Polamk),0.114747
+Karelia-ammattikorkeakoulu,0.093355
+Sibelius-Akatemia,0.078288
+Kaakkois-Suomen ammattikorkeakoulu (XAMK),0.071019
+Maanmittauslaitos,0.068005
+Helsingin yliopisto/Kansalliskirjasto,0.066314
+Kansalliskirjasto,0.043156
+Kansallisgallerian kirjasto,0.036373
+Ulkopoliittinen instituutti (UPI),0.026352
+Teatterikorkeakoulu,0.018064
+Kuvataideakatemia,0.015359

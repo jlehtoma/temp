@@ -16,7 +16,7 @@ FOI request
 
 ### Total costs by organization 2010-2015
 
-<img src="figure/foi-totalcosts-1.png" title="plot of chunk foi-totalcosts" alt="plot of chunk foi-totalcosts" width="300px" /><img src="figure/foi-totalcosts-2.png" title="plot of chunk foi-totalcosts" alt="plot of chunk foi-totalcosts" width="300px" /><img src="figure/foi-totalcosts-3.png" title="plot of chunk foi-totalcosts" alt="plot of chunk foi-totalcosts" width="300px" /><img src="figure/foi-totalcosts-4.png" title="plot of chunk foi-totalcosts" alt="plot of chunk foi-totalcosts" width="300px" /><img src="figure/foi-totalcosts-5.png" title="plot of chunk foi-totalcosts" alt="plot of chunk foi-totalcosts" width="300px" /><img src="figure/foi-totalcosts-6.png" title="plot of chunk foi-totalcosts" alt="plot of chunk foi-totalcosts" width="300px" />
+<img src="figure/foi-totalcosts-1.png" title="plot of chunk foi-totalcosts" alt="plot of chunk foi-totalcosts" width="300px" /><img src="figure/foi-totalcosts-2.png" title="plot of chunk foi-totalcosts" alt="plot of chunk foi-totalcosts" width="300px" /><img src="figure/foi-totalcosts-3.png" title="plot of chunk foi-totalcosts" alt="plot of chunk foi-totalcosts" width="300px" /><img src="figure/foi-totalcosts-4.png" title="plot of chunk foi-totalcosts" alt="plot of chunk foi-totalcosts" width="300px" /><img src="figure/foi-totalcosts-5.png" title="plot of chunk foi-totalcosts" alt="plot of chunk foi-totalcosts" width="300px" />
 
  * [Total costs by organization (complete table)](table/cost_by_organization.csv).
  * [Total costs by publisher (complete table)](table/cost_by_publisher.csv).
@@ -26,34 +26,39 @@ FOI request
 
 
 
+
+```
+## Error in eval(expr, envir, enclos): object 'Costs' not found
+```
+
 <img src="figure/foi-plots-1.png" title="plot of chunk foi-plots" alt="plot of chunk foi-plots" width="400px" />
 
 
 ## Publication costs with top publishers 2010-2015
 
 
-|Publisher                                                |    Price|
-|:--------------------------------------------------------|--------:|
-|Elsevier                                                 | 43971227|
-|Wiley                                                    | 13321876|
-|Ebsco                                                    | 10297640|
-|Springer                                                 |  8319385|
-|ProQuest                                                 |  5709784|
-|Thomson Reuters                                          |  4042072|
-|SAGE Publications                                        |  3836765|
-|American Chemical Society (ACS)                          |  3655505|
-|Nature Publishing Group                                  |  3159795|
-|Taylor & Francis                                         |  2747357|
-|Institute of Electrical and Electronics Engineers (IEEE) |  2305962|
-|LM Tietopalvelut                                         |  2266371|
-|Duodecim                                                 |  1816408|
-|Talentum                                                 |  1360409|
-|Wolters Kluwer Health                                    |  1327242|
-|Suomen Standardisoimisliitto SFS                         |  1229727|
-|Emerald Group Publishing                                 |  1147285|
-|Ovid                                                     |  1000727|
-|Kielikone                                                |   998432|
-|Edita Publishing                                         |   863660|
+|Publisher                                                |     Price|
+|:--------------------------------------------------------|---------:|
+|Elsevier                                                 | 43.971227|
+|Wiley                                                    | 13.321876|
+|Ebsco                                                    | 10.297640|
+|Springer                                                 |  8.319385|
+|ProQuest                                                 |  5.709784|
+|Thomson Reuters                                          |  4.042072|
+|SAGE Publications                                        |  3.836765|
+|American Chemical Society (ACS)                          |  3.655505|
+|Nature Publishing Group                                  |  3.159795|
+|Taylor & Francis                                         |  2.747357|
+|Institute of Electrical and Electronics Engineers (IEEE) |  2.305962|
+|LM Tietopalvelut                                         |  2.266371|
+|Duodecim                                                 |  1.816408|
+|Talentum                                                 |  1.360409|
+|Wolters Kluwer Health                                    |  1.327242|
+|Suomen Standardisoimisliitto SFS                         |  1.229727|
+|Emerald Group Publishing                                 |  1.147285|
+|Ovid                                                     |  1.000727|
+|Kielikone                                                |  0.998432|
+|Edita Publishing                                         |  0.863660|
 
 
 ## Cost development by publisher over time
@@ -67,7 +72,7 @@ Top-10 publishers shown (out of 244) correspond to 0.7685746% of the overall cos
 
 
 ```r
-dfs <- df %>% group_by(Year, Publisher) %>% summarise(Price = sum(Price)) %>% arrange(Year)
+dfs <- df %>% group_by(Year, Publisher) %>% summarise(Price = sum(Price)/1e6) %>% arrange(Year)
 dfss <- spread(dfs, Year, Price)
 kasvu <- unlist(dfss[, "2015"]/dfss[, "2010"]);
 names(kasvu) <- as.character(dfss$Publisher)
