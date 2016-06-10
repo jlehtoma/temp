@@ -126,61 +126,27 @@ print(p)
 
 ```{r foi-toppublishercosts, message=FALSE, eval=TRUE, echo=FALSE, fig.show="hold", out.width="200px"}
 # Total cost : all publishers
-dfs <- df %>% group_by(Publisher) %>% summarise(Price = sum(Price)/1e6) %>% arrange(desc(Price))
+dfs <- df %>% group_by(Publisher) %>% summarise(Cost = sum(Price)/1e6) %>% arrange(desc(Cost))
 colnames(dfs) = c("Publisher", "Cost (MEUR)")
 kable(head(dfs, 20))
 ```
 
 
-## Cost development by publisher over time
+## Costs by publisher over time
 
-Top-10 publishers shown (out of `r nrow(dfs)`) correspond to `r sum(dfs$Price[1:10])/sum(dfs$Price)`% of the overall costs.
+Top-10 publishers (out of `r nrow(dfs)`) correspond to `r round(100 * sum(dfs[["Cost (MEUR)"]][1:10])/sum(dfs[["Cost (MEUR)"]]))`% of the overall costs.
 
-```{r foi-timebypublisher, message=FALSE, eval=TRUE, echo=FALSE, fig.width = 10, fig.height = 5}
-top.publishers <- as.character(dfs$Publisher[1:10])
+```{r foi-timebypublisher, message=FALSE, echo=FALSE, fig.width=10, fig.height=5}
 # Price, Year : individual publishers compared
 # Growth percentage compared to previous year is shown
-dfs <- dplyr::filter(df, Publisher %in% top.publishers) %>% group_by(Year, Publisher) %>% summarise(Price = sum(Price)/1e6) %>% arrange(Year)
+top.publishers <- as.character(dfs$Publisher[1:10])
+dfs <- dplyr::filter(df, Publisher %in% top.publishers) %>% group_by(Year, Publisher) %>% summarise(Costs = sum(Price)/1e6) %>% arrange(Year)
 dfs$Publisher <- factor(dfs$Publisher, levels = top.publishers)
-p <- ggplot(dfs, aes(x = Year, y = Price, color = Publisher)) +
+p <- ggplot(dfs, aes(x = Year, y = Costs, color = Publisher)) +
        geom_point() +
        geom_line() +       
        ggtitle("Price development by publisher") +
-       ylab("Price (EUR)") 
-print(p)
-```
-
-
-### Relative increase in costs 2015 vs 2010
-
-```{r foi-time, message=FALSE, eval=TRUE}
-dfs <- df %>% group_by(Year, Publisher) %>% summarise(Price = sum(Price)/1e6) %>% arrange(Year)
-dfss <- spread(dfs, Year, Price)
-kasvu <- unlist(dfss[, "2015"]/dfss[, "2010"]);
-names(kasvu) <- as.character(dfss$Publisher)
-sort(kasvu)
-
-# Relative prices with 2010 baseline
-# Top relative increase
-kustantajat <- dfss[,1]
-hinnat = as.matrix(dfss[, -1])
-hinnat <- hinnat/hinnat[,1]
-dfs2 <- as.data.frame(hinnat)
-dfs2$Publisher <- as.character(unlist(kustantajat, use.names = F))
-dfs2 <- dfs2[!is.na(dfs2[, "2015"]),]
-dfs2 <- dfs2[rev(order(dfs2[, "2015"])),]
-top <- as.character(unlist(dfs2$Publisher, use.names = F)[1:10])
-dfs3 <- dfs[unlist(dfs$Publisher) %in% top,]
-dfs3$Publisher <- as.character(unlist(dfs3$Publisher, use.names = F))
-dfs3$Publisher <- factor(dfs3$Publisher, levels = top)
-dfs3$Year <- as.numeric(as.character(dfs3$Year))
-dfs3$Price <- as.numeric(as.character(dfs3$Price))
-p <- ggplot(dfs3,
-       aes(x = Year, y = Price, color = Publisher)) +
-       geom_point() +
-       geom_line() +       
-       ggtitle("Relative price development by publisher") +
-       ylab("Price (EUR)") 
+       ylab("Price (MEUR)") 
 print(p)
 ```
 
