@@ -94,12 +94,6 @@ write.csv(dfs, file = "table/cost_by_type.csv", quote = F, row.names = F)
 ```
 
 
-
-```{r}
-library(DT)
-DT::datatable(iris)
-```
-
 ## Overall publication costs 2010-2015
 
  * Total costs for Finland 2010-2015: `r round(sum(df$Price)/1e6, 1)` million EUR

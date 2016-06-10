@@ -47,15 +47,6 @@ code](https://github.com/antagomir/temp/blob/master/20160610/foi.Rmd).
 
 
 
-
-
-```r
-library(DT)
-DT::datatable(iris)
-```
-
-![plot of chunk unnamed-chunk-1](figure/unnamed-chunk-1-1.png)
-
 ## Overall publication costs 2010-2015
 
  * Total costs for Finland 2010-2015: 128.9 million EUR

@@ -49,6 +49,10 @@ dfs$Percentage = round(100 * dfs$Costs/sum(dfs$Costs), 1)
 names(dfs) = c("Publisher", "Total (MEUR)", "Percent (%)")
 write.csv(dfs, file = "table/cost_by_publisher.csv", quote = F, row.names = F)
 
+```{r}
+library(DT)
+DT::datatable(iris)
+```
 
 
 df$Aineisto
