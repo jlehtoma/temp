@@ -97,7 +97,4 @@ Top-10 publishers (out of 244) correspond to 77% of the overall costs.
 
 
 
-
-```
-## Error in find_phantom(): PhantomJS not found. You can install it with webshot::install_phantomjs(). If it is installed, please make sure the phantomjs executable can be found via the PATH variable.
-```
+![plot of chunk foi-test](figure/foi-test-1.png)
