@@ -18,7 +18,10 @@ FOI request
 
 
 ```
-## Error: '\%' is an unrecognized escape in character string starting ""\%"
+## Error: <text>:28:1: unexpected symbol
+## 27:        ylab("Hinta (EUR)")
+## 28: print
+##     ^
 ```
 
 
