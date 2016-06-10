@@ -1,10 +1,7 @@
 ---
-title: "FOI"
+title: "Scientific subscription costs in Finland 2010-2015"
 author: Leo Lahti
 date: "`r Sys.Date()`"
-output:
-  html_document:
-    theme: flatly
 ---
 
 
@@ -71,13 +68,6 @@ names(dfs) = c("Year", "Total (MEUR)")
 write.csv(dfs, file = "table/cost_by_year.csv", quote = F, row.names = F)
 ```
 
- * [Total costs by organization (complete table)](table/cost_by_organization.csv)
- * [Total costs by publisher (complete table)](table/cost_by_publisher.csv)
- * [Total costs by material](table/cost_by_material.csv)
- * [Total costs by type](table/cost_by_type.csv)
- * [Total costs by year](table/cost_by_year.csv)   
-
-
 ### Total costs for Finland 2010-2015
 
 The total costs paid to scientific publishers by Finland 2010-2015. The annual increase is indicated.
@@ -99,9 +89,16 @@ print(p)
 
 ## Publication costs with top publishers 2010-2015
 
+ * [Total costs by organization (complete table)](table/cost_by_organization.csv)
+ * [Total costs by publisher (complete table)](table/cost_by_publisher.csv)
+ * [Total costs by material](table/cost_by_material.csv)
+ * [Total costs by type](table/cost_by_type.csv)
+ * [Total costs by year](table/cost_by_year.csv)   
+
 ```{r foi-toppublishercosts, message=FALSE, eval=TRUE, echo=FALSE, fig.show="hold", out.width="200px"}
-# Kokonaishinta : all publishers
+# Total cost : all publishers
 dfs <- df %>% group_by(Publisher) %>% summarise(Price = sum(Price)/1e6) %>% arrange(desc(Price))
+colnames(dfs) = c("Publisher", "Cost (MEUR)")
 kable(head(dfs, 20))
 ```
 
@@ -110,7 +107,7 @@ kable(head(dfs, 20))
 
 Top-10 publishers shown (out of `r nrow(dfs)`) correspond to `r sum(dfs$Price[1:10])/sum(dfs$Price)`% of the overall costs.
 
-```{r foi-timebypublisher, message=FALSE, eval=TRUE, echo=FALSE, fig.show="hold", out.width="200px"}
+```{r foi-timebypublisher, message=FALSE, eval=TRUE, echo=FALSE, fig.width = 5, fig.height = 5}
 top.publishers <- as.character(dfs$Publisher[1:10])
 # Price, Year : individual publishers compared
 # Growth percentage compared to previous year is shown

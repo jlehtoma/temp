@@ -1,10 +1,7 @@
 ---
-title: "FOI"
+title: "Scientific subscription costs in Finland 2010-2015"
 author: Leo Lahti
 date: "2016-06-10"
-output:
-  html_document:
-    theme: flatly
 ---
 
 
@@ -18,13 +15,6 @@ FOI request
 
 <img src="figure/foi-totalcosts-1.png" title="plot of chunk foi-totalcosts" alt="plot of chunk foi-totalcosts" width="430px" /><img src="figure/foi-totalcosts-2.png" title="plot of chunk foi-totalcosts" alt="plot of chunk foi-totalcosts" width="430px" /><img src="figure/foi-totalcosts-3.png" title="plot of chunk foi-totalcosts" alt="plot of chunk foi-totalcosts" width="430px" /><img src="figure/foi-totalcosts-4.png" title="plot of chunk foi-totalcosts" alt="plot of chunk foi-totalcosts" width="430px" />
 
- * [Total costs by organization (complete table)](table/cost_by_organization.csv)
- * [Total costs by publisher (complete table)](table/cost_by_publisher.csv)
- * [Total costs by material](table/cost_by_material.csv)
- * [Total costs by type](table/cost_by_type.csv)
- * [Total costs by year](table/cost_by_year.csv)   
-
-
 ### Total costs for Finland 2010-2015
 
 The total costs paid to scientific publishers by Finland 2010-2015. The annual increase is indicated.
@@ -34,36 +24,42 @@ The total costs paid to scientific publishers by Finland 2010-2015. The annual i
 
 ## Publication costs with top publishers 2010-2015
 
+ * [Total costs by organization (complete table)](table/cost_by_organization.csv)
+ * [Total costs by publisher (complete table)](table/cost_by_publisher.csv)
+ * [Total costs by material](table/cost_by_material.csv)
+ * [Total costs by type](table/cost_by_type.csv)
+ * [Total costs by year](table/cost_by_year.csv)   
 
-|Publisher                                                |     Price|
-|:--------------------------------------------------------|---------:|
-|Elsevier                                                 | 43.971227|
-|Wiley                                                    | 13.321876|
-|Ebsco                                                    | 10.297640|
-|Springer                                                 |  8.319385|
-|ProQuest                                                 |  5.709784|
-|Thomson Reuters                                          |  4.042072|
-|SAGE Publications                                        |  3.836765|
-|American Chemical Society (ACS)                          |  3.655505|
-|Nature Publishing Group                                  |  3.159795|
-|Taylor & Francis                                         |  2.747357|
-|Institute of Electrical and Electronics Engineers (IEEE) |  2.305962|
-|LM Tietopalvelut                                         |  2.266371|
-|Duodecim                                                 |  1.816408|
-|Talentum                                                 |  1.360409|
-|Wolters Kluwer Health                                    |  1.327242|
-|Suomen Standardisoimisliitto SFS                         |  1.229727|
-|Emerald Group Publishing                                 |  1.147285|
-|Ovid                                                     |  1.000727|
-|Kielikone                                                |  0.998432|
-|Edita Publishing                                         |  0.863660|
+
+|Publisher                                                | Cost (MEUR)|
+|:--------------------------------------------------------|-----------:|
+|Elsevier                                                 |   43.971227|
+|Wiley                                                    |   13.321876|
+|Ebsco                                                    |   10.297640|
+|Springer                                                 |    8.319385|
+|ProQuest                                                 |    5.709784|
+|Thomson Reuters                                          |    4.042072|
+|SAGE Publications                                        |    3.836765|
+|American Chemical Society (ACS)                          |    3.655505|
+|Nature Publishing Group                                  |    3.159795|
+|Taylor & Francis                                         |    2.747357|
+|Institute of Electrical and Electronics Engineers (IEEE) |    2.305962|
+|LM Tietopalvelut                                         |    2.266371|
+|Duodecim                                                 |    1.816408|
+|Talentum                                                 |    1.360409|
+|Wolters Kluwer Health                                    |    1.327242|
+|Suomen Standardisoimisliitto SFS                         |    1.229727|
+|Emerald Group Publishing                                 |    1.147285|
+|Ovid                                                     |    1.000727|
+|Kielikone                                                |    0.998432|
+|Edita Publishing                                         |    0.863660|
 
 
 ## Cost development by publisher over time
 
-Top-10 publishers shown (out of 244) correspond to 0.7685746% of the overall costs.
+Top-10 publishers shown (out of 244) correspond to NaN% of the overall costs.
 
-<img src="figure/foi-timebypublisher-1.png" title="plot of chunk foi-timebypublisher" alt="plot of chunk foi-timebypublisher" width="200px" />
+![plot of chunk foi-timebypublisher](figure/foi-timebypublisher-1.png)
 
 
 ### Relative increase in costs 2015 vs 2010
