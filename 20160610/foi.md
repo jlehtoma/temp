@@ -11,7 +11,7 @@ output:
 
 
 
-Subscription costs for individual publishers 2010-2015: the Finnish case
+Publishers subscription costs in Finland 2010-2015
 ===========
 
 
@@ -31,22 +31,22 @@ collected and organized the data, which has now been released on
 [their website](). The overall process is summarized in another [blog
 post]().
 
-Related data have been previously collected in a few countries (see
-Stuart Lawson's [recent
-post](http://stuartlawson.org/2016/06/publicly-available-data-on-international-journal-subscription-costs),
+Related data have been collected in a few countries (see Stuart
+Lawson's [recent
+post](http://stuartlawson.org/2016/06/publicly-available-data-on-international-journal-subscription-costs).
 However, Finland is now one of the first countries (after US and UK)
-where the subscription costs are available over several years at the
-level of individual publishers. Here, I present preliminary analysis
-of this data collection. The fully reproducible source code of this
-document is
-[available](https://github.com/antagomir/temp/blob/master/20160610/foi.Rmd).
-
-
+where the subscription fees are available over several years at the
+level of individual publishers. Below is a preliminary analysis of
+this data collection, made with a fully reproducible [source
+code](https://github.com/antagomir/temp/blob/master/20160610/foi.Rmd).
 
 
 ### Overall subscription costs 2010-2015
 
-<img src="figure/foi-totalcosts-1.png" title="plot of chunk foi-totalcosts" alt="plot of chunk foi-totalcosts" width="430px" /><img src="figure/foi-totalcosts-2.png" title="plot of chunk foi-totalcosts" alt="plot of chunk foi-totalcosts" width="430px" /><img src="figure/foi-totalcosts-3.png" title="plot of chunk foi-totalcosts" alt="plot of chunk foi-totalcosts" width="430px" /><img src="figure/foi-totalcosts-4.png" title="plot of chunk foi-totalcosts" alt="plot of chunk foi-totalcosts" width="430px" />
+<img src="figure/foi-totalcosts-1.png" title="plot of chunk foi-totalcosts" alt="plot of chunk foi-totalcosts" width="430px" /><img src="figure/foi-totalcosts-2.png" title="plot of chunk foi-totalcosts" alt="plot of chunk foi-totalcosts" width="430px" />
+
+
+<img src="figure/foi-totalcosts2-1.png" title="plot of chunk foi-totalcosts2" alt="plot of chunk foi-totalcosts2" width="430px" /><img src="figure/foi-totalcosts2-2.png" title="plot of chunk foi-totalcosts2" alt="plot of chunk foi-totalcosts2" width="430px" />
 
 ### Total costs for Finland 2010-2015
 
@@ -97,4 +97,3 @@ Top-10 publishers (out of 244) correspond to 77% of the overall costs.
 
 
 
-![plot of chunk foi-test](figure/foi-test-1.png)
