@@ -59,7 +59,7 @@ The total costs paid to scientific publishers by Finland 2010-2015. The annual i
 
  * [Total costs by organization (complete table)](table/cost_by_organization.csv)
  * [Total costs by publisher (complete table)](table/cost_by_publisher.csv)
- * [Total costs by material](table/cost_by_material.csv)
+ * [Total costs by category](table/cost_by_category.csv)
  * [Total costs by type](table/cost_by_type.csv)
  * [Total costs by year](table/cost_by_year.csv)   
 
