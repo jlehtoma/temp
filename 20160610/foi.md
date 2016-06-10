@@ -344,7 +344,7 @@ p <- ggplot(dfs3,
        aes(x = Year, y = Price, color = Publisher)) +
        geom_point() +
        geom_line() +       
-       ggtitle("Kokonaishintojen suhteellinen kehitys kustantajittain") +
+       ggtitle("Relative price development by publisher") +
        ylab("Price (EUR)") 
 print(p)
 ```

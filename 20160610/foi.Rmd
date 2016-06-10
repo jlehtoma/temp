@@ -107,7 +107,7 @@ kable(head(dfs, 20))
 
 Top-10 publishers shown (out of `r nrow(dfs)`) correspond to `r sum(dfs$Price[1:10])/sum(dfs$Price)`% of the overall costs.
 
-```{r foi-timebypublisher, message=FALSE, eval=TRUE, echo=FALSE, fig.width = 5, fig.height = 5}
+```{r foi-timebypublisher, message=FALSE, eval=TRUE, echo=FALSE, fig.width = 10, fig.height = 5}
 top.publishers <- as.character(dfs$Publisher[1:10])
 # Price, Year : individual publishers compared
 # Growth percentage compared to previous year is shown
@@ -116,7 +116,7 @@ dfs$Publisher <- factor(dfs$Publisher, levels = top.publishers)
 p <- ggplot(dfs, aes(x = Year, y = Price, color = Publisher)) +
        geom_point() +
        geom_line() +       
-       ggtitle("Kokonaishintojen kehitys kustantajittain") +
+       ggtitle("Price development by publisher") +
        ylab("Price (EUR)") 
 print(p)
 ```
@@ -150,7 +150,7 @@ p <- ggplot(dfs3,
        aes(x = Year, y = Price, color = Publisher)) +
        geom_point() +
        geom_line() +       
-       ggtitle("Kokonaishintojen suhteellinen kehitys kustantajittain") +
+       ggtitle("Relative price development by publisher") +
        ylab("Price (EUR)") 
 print(p)
 ```
