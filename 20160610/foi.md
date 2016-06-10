@@ -14,15 +14,25 @@ FOI request
 
 
 
-### Data overview
+### Total costs by organization 2010-2015
 
-<img src="figure/foi-plots-1.png" title="plot of chunk foi-plots" alt="plot of chunk foi-plots" width="400px" /><img src="figure/foi-plots-2.png" title="plot of chunk foi-plots" alt="plot of chunk foi-plots" width="400px" /><img src="figure/foi-plots-3.png" title="plot of chunk foi-plots" alt="plot of chunk foi-plots" width="400px" /><img src="figure/foi-plots-4.png" title="plot of chunk foi-plots" alt="plot of chunk foi-plots" width="400px" /><img src="figure/foi-plots-5.png" title="plot of chunk foi-plots" alt="plot of chunk foi-plots" width="400px" /><img src="figure/foi-plots-6.png" title="plot of chunk foi-plots" alt="plot of chunk foi-plots" width="400px" /><img src="figure/foi-plots-7.png" title="plot of chunk foi-plots" alt="plot of chunk foi-plots" width="400px" />
+<img src="figure/foi-totalcosts-1.png" title="plot of chunk foi-totalcosts" alt="plot of chunk foi-totalcosts" width="300px" /><img src="figure/foi-totalcosts-2.png" title="plot of chunk foi-totalcosts" alt="plot of chunk foi-totalcosts" width="300px" /><img src="figure/foi-totalcosts-3.png" title="plot of chunk foi-totalcosts" alt="plot of chunk foi-totalcosts" width="300px" /><img src="figure/foi-totalcosts-4.png" title="plot of chunk foi-totalcosts" alt="plot of chunk foi-totalcosts" width="300px" /><img src="figure/foi-totalcosts-5.png" title="plot of chunk foi-totalcosts" alt="plot of chunk foi-totalcosts" width="300px" /><img src="figure/foi-totalcosts-6.png" title="plot of chunk foi-totalcosts" alt="plot of chunk foi-totalcosts" width="300px" />
+
+ * [Total costs by organization (complete table)](table/cost_by_organization.csv).
+ * [Total costs by publisher (complete table)](table/cost_by_publisher.csv).
+ * [Total costs by material](table/cost_by_material.csv).
+ * [Total costs by type](table/cost_by_type.csv).
+ * [Total costs by year](table/cost_by_year.csv).   
 
 
-## Publication costs paid to top publishers 2010-2015
+
+<img src="figure/foi-plots-1.png" title="plot of chunk foi-plots" alt="plot of chunk foi-plots" width="400px" />
 
 
-|Kustantaja                                               |    Hinta|
+## Publication costs with top publishers 2010-2015
+
+
+|Publisher                                                |    Price|
 |:--------------------------------------------------------|--------:|
 |Elsevier                                                 | 43971227|
 |Wiley                                                    | 13321876|
@@ -57,10 +67,10 @@ Top-10 publishers shown (out of 244) correspond to 0.7685746% of the overall cos
 
 
 ```r
-dfs <- df %>% group_by(Vuosi, Kustantaja) %>% summarise(Hinta = sum(Hinta)) %>% arrange(Vuosi)
-dfss <- spread(dfs, Vuosi, Hinta)
+dfs <- df %>% group_by(Year, Publisher) %>% summarise(Price = sum(Price)) %>% arrange(Year)
+dfss <- spread(dfs, Year, Price)
 kasvu <- unlist(dfss[, "2015"]/dfss[, "2010"]);
-names(kasvu) <- as.character(dfss$Kustantaja)
+names(kasvu) <- as.character(dfss$Publisher)
 sort(kasvu)
 ```
 
@@ -322,21 +332,21 @@ kustantajat <- dfss[,1]
 hinnat = as.matrix(dfss[, -1])
 hinnat <- hinnat/hinnat[,1]
 dfs2 <- as.data.frame(hinnat)
-dfs2$Kustantaja <- as.character(unlist(kustantajat, use.names = F))
+dfs2$Publisher <- as.character(unlist(kustantajat, use.names = F))
 dfs2 <- dfs2[!is.na(dfs2[, "2015"]),]
 dfs2 <- dfs2[rev(order(dfs2[, "2015"])),]
-top <- as.character(unlist(dfs2$Kustantaja, use.names = F)[1:10])
-dfs3 <- dfs[unlist(dfs$Kustantaja) %in% top,]
-dfs3$Kustantaja <- as.character(unlist(dfs3$Kustantaja, use.names = F))
-dfs3$Kustantaja <- factor(dfs3$Kustantaja, levels = top)
-dfs3$Vuosi <- as.numeric(as.character(dfs3$Vuosi))
-dfs3$Hinta <- as.numeric(as.character(dfs3$Hinta))
+top <- as.character(unlist(dfs2$Publisher, use.names = F)[1:10])
+dfs3 <- dfs[unlist(dfs$Publisher) %in% top,]
+dfs3$Publisher <- as.character(unlist(dfs3$Publisher, use.names = F))
+dfs3$Publisher <- factor(dfs3$Publisher, levels = top)
+dfs3$Year <- as.numeric(as.character(dfs3$Year))
+dfs3$Price <- as.numeric(as.character(dfs3$Price))
 p <- ggplot(dfs3,
-       aes(x = Vuosi, y = Hinta, color = Kustantaja)) +
+       aes(x = Year, y = Price, color = Publisher)) +
        geom_point() +
        geom_line() +       
        ggtitle("Kokonaishintojen suhteellinen kehitys kustantajittain") +
-       ylab("Hinta (EUR)") 
+       ylab("Price (EUR)") 
 print(p)
 ```
 
