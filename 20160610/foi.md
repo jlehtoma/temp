@@ -49,10 +49,10 @@ code](https://github.com/antagomir/temp/blob/master/20160610/foi.Rmd).
 ## Overall publication costs 2010-2015
 
  * Total costs for Finland 2010-2015: 128.9 million EUR
- * 62 organizations ([Total costs by organization](table/cost_by_organization.csv))
- * 244 publishers ([Total costs by publisher (complete table)](table/cost_by_publisher.csv))
- * [Total costs by category](table/cost_by_category.csv)
- * [Total costs by type](table/cost_by_type.csv)
+ * 62 organizations ([costs by organization](table/cost_by_organization_year.csv))
+ * 244 publishers ([costs by publisher](table/cost_by_publisher_year.csv))
+ * [Costs by category](table/cost_by_category.csv)
+ * [Costs by agreement type](table/cost_by_type.csv)
 
 
 <img src="figure/foi-totalcosts-1.png" title="plot of chunk foi-totalcosts" alt="plot of chunk foi-totalcosts" width="430px" /><img src="figure/foi-totalcosts-2.png" title="plot of chunk foi-totalcosts" alt="plot of chunk foi-totalcosts" width="430px" />
@@ -63,35 +63,8 @@ code](https://github.com/antagomir/temp/blob/master/20160610/foi.Rmd).
 <img src="figure/foi-totalcosts2-1.png" title="plot of chunk foi-totalcosts2" alt="plot of chunk foi-totalcosts2" width="430px" /><img src="figure/foi-totalcosts2-2.png" title="plot of chunk foi-totalcosts2" alt="plot of chunk foi-totalcosts2" width="430px" />
 
 
-## Publisher comparisons
-
-
-|Publisher                                                | Cost (MEUR)|
-|:--------------------------------------------------------|-----------:|
-|Elsevier                                                 |   43.971227|
-|Wiley                                                    |   13.321876|
-|Ebsco                                                    |   10.297640|
-|Springer                                                 |    8.319385|
-|ProQuest                                                 |    5.709784|
-|Thomson Reuters                                          |    4.042072|
-|SAGE Publications                                        |    3.836765|
-|American Chemical Society (ACS)                          |    3.655505|
-|Nature Publishing Group                                  |    3.159795|
-|Taylor & Francis                                         |    2.747357|
-|Institute of Electrical and Electronics Engineers (IEEE) |    2.305962|
-|LM Tietopalvelut                                         |    2.266371|
-|Duodecim                                                 |    1.816408|
-|Talentum                                                 |    1.360409|
-|Wolters Kluwer Health                                    |    1.327242|
-|Suomen Standardisoimisliitto SFS                         |    1.229727|
-|Emerald Group Publishing                                 |    1.147285|
-|Ovid                                                     |    1.000727|
-|Kielikone                                                |    0.998432|
-|Edita Publishing                                         |    0.863660|
-
 
 ## Cost development over time
-
 
 
 
@@ -99,7 +72,10 @@ Left: The total costs paid to scientific publishers by Finland 2010-2015. The an
 
 Right: Top-10 publishers (out of 6) correspond to NaN% of the overall costs.
 
-![plot of chunk foi-timebypublisher](figure/foi-timebypublisher-1.png)![plot of chunk foi-timebypublisher](figure/foi-timebypublisher-2.png)
+
+
+<img src="figure/foi-timebypublisher-1.png" title="plot of chunk foi-timebypublisher" alt="plot of chunk foi-timebypublisher" width="420px" /><img src="figure/foi-timebypublisher-2.png" title="plot of chunk foi-timebypublisher" alt="plot of chunk foi-timebypublisher" width="420px" />
+
 
 
 

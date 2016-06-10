@@ -67,43 +67,45 @@ code](https://github.com/antagomir/temp/blob/master/20160610/foi.Rmd).
 dfs = df %>% group_by(Category) %>% summarise(Costs = sum(Price)/1e6) %>% arrange(desc(Costs))
 dfs$Category = factor(dfs$Category, levels = rev(as.character(dfs$Category)))
 dfs$Percentage = round(100 * dfs$Costs/sum(dfs$Costs), 1)
-names(dfs) = c("Category", "Total (MEUR)")
+names(dfs) = c("Category", "Total (MEUR)", "Percent (%)")
 write.csv(dfs, file = "table/cost_by_category.csv", quote = F, row.names = F)
 
-dfs = df %>% group_by(Organization) %>% summarise(Costs = sum(Price)/1e6) %>% arrange(desc(Costs))
-dfs$Organization = factor(dfs$Organization, levels = rev(as.character(dfs$Organization)))
-dfs$Percentage = round(100 * dfs$Costs/sum(dfs$Costs), 1)
-names(dfs) = c("Organization", "Total (MEUR)")
-write.csv(dfs, file = "table/cost_by_organization.csv", quote = F, row.names = F)
 
-dfs = df %>% group_by(Publisher) %>% summarise(Costs = sum(Price)/1e6) %>% arrange(desc(Costs))
-dfs$Publisher = factor(dfs$Publisher, levels = rev(as.character(dfs$Publisher)))
-dfs$Percentage = round(100 * dfs$Costs/sum(dfs$Costs), 1)
-names(dfs) = c("Publisher", "Total (MEUR)")
-write.csv(dfs, file = "table/cost_by_publisher.csv", quote = F, row.names = F)
+dfs <- df %>% group_by(Year, Organization) %>% summarise(Costs = sum(Price, na.rm = TRUE)/1e6) %>% arrange(Year) %>% spread(Year, Costs)
+dfs[is.na(dfs)] = 0
+dfs$Total = rowSums(dfs[, as.character(2010:2015)], na.rm = TRUE)
+dfs$Percentage = round(100 * dfs$Total/sum(dfs$Total), 1)
+names(dfs) = c("Organization", paste(as.character(2010:2015), "(MEUR)"), "Total (MEUR)", "Percent (%)")
+write.csv(dfs, file = "table/cost_by_organization_year.csv", quote = F, row.names = F)
 
+dfs <- df %>% group_by(Year, Publisher) %>% summarise(Costs = sum(Price, na.rm = TRUE)/1e6) %>% arrange(Year) %>% spread(Year, Costs)
+dfs[is.na(dfs)] = 0
+dfs$Total = rowSums(dfs[, as.character(2010:2015)], na.rm = TRUE)
+dfs$Percentage = round(100 * dfs$Total/sum(dfs$Total), 1)
+names(dfs) = c("Publisher", paste(as.character(2010:2015), "(MEUR)"), "Total (MEUR)", "Percent (%)")
+write.csv(dfs, file = "table/cost_by_publisher_year.csv", quote = F, row.names = F)
 
 dfs = df %>% group_by(Type) %>% summarise(Costs = sum(Price)/1e6) %>% arrange(desc(Costs))
 dfs$Type = factor(dfs$Type, levels = rev(as.character(dfs$Type)))
 dfs$Percentage = round(100 * dfs$Costs/sum(dfs$Costs), 1)
-names(dfs) = c("Type", "Total (MEUR)")
+names(dfs) = c("Type", "Total (MEUR)", "Percent (%)")
 write.csv(dfs, file = "table/cost_by_type.csv", quote = F, row.names = F)
 ```
 
 ## Overall publication costs 2010-2015
 
  * Total costs for Finland 2010-2015: `r round(sum(df$Price)/1e6, 1)` million EUR
- * `r length(unique(df$Organization))` organizations ([Total costs by organization](table/cost_by_organization.csv))
- * `r length(unique(df$Publisher))` publishers ([Total costs by publisher (complete table)](table/cost_by_publisher.csv))
- * [Total costs by category](table/cost_by_category.csv)
- * [Total costs by type](table/cost_by_type.csv)
+ * `r length(unique(df$Organization))` organizations ([costs by organization](table/cost_by_organization_year.csv))
+ * `r length(unique(df$Publisher))` publishers ([costs by publisher](table/cost_by_publisher_year.csv))
+ * [Costs by category](table/cost_by_category.csv)
+ * [Costs by agreement type](table/cost_by_type.csv)
 
 
 ```{r foi-totalcosts, message=FALSE, echo=FALSE, fig.show="hold", out.width="430px", fig.width = 7, fig.height = 5}
 dfs = df %>% group_by(Organization.type) %>% summarise(Costs = sum(Price)/1e6) %>% arrange(Costs)
 dfs$Organization.type = factor(dfs$Organization.type, levels = as.character(dfs$Organization.type))
 dfs$Percentage = round(100 * dfs$Costs/sum(dfs$Costs), 1)
-p <- ggplot(dfs, aes(x = Organization.type, y = Costs)) + geom_bar(stat = "identity", fill = "lightgray", color = "black") + ggtitle("Costs by organization type") + coord_flip() + xlab("") + ylab("Total Costs (MEUR)") + geom_text(aes(x=Organization.type, y=4, label=paste(Percentage, "%", sep = ""), hjust=ifelse(sign(Percentage)>0, 0, 0)), position = position_dodge(width=1), size = 7)
+p <- ggplot(dfs, aes(x = Organization.type, y = Costs)) + geom_bar(stat = "identity", fill = "lightgray", color = "black") + ggtitle("Costs by organization type") + coord_flip() + xlab("") + ylab("Total Costs (MEUR)") + geom_text(aes(x=Organization.type, y=10, label=paste(Percentage, "%", sep = ""), hjust=ifelse(sign(Percentage)>0, 0, 0)), position = position_dodge(width=1), size = 7)
 print(p)
 
 dfs = df %>% group_by(Category) %>% summarise(Costs = sum(Price)/1e6) %>% arrange(desc(Costs))
@@ -111,7 +113,7 @@ dfs$Category = factor(dfs$Category, levels = rev(as.character(dfs$Category)))
 dfs$Percentage = round(100 * dfs$Costs/sum(dfs$Costs), 1)
 # Only consider the high-level categories
 dfss = dfs[-grep(";", dfs$Category),]
-p <- ggplot(dfss, aes(x = Category, y = Costs)) + geom_bar(stat = "identity", fill = "lightgray", color = "black") + ggtitle("Costs by category") + coord_flip() + xlab("") + ylab("Total Costs (MEUR)") + geom_text(aes(x=Category, y=4, label=paste(Percentage, "%", sep = ""), hjust=ifelse(sign(Percentage)>0, 0, 0)), position = position_dodge(width=1), size = 7)
+p <- ggplot(dfss, aes(x = Category, y = Costs)) + geom_bar(stat = "identity", fill = "lightgray", color = "black") + ggtitle("Costs by category") + coord_flip() + xlab("") + ylab("Total Costs (MEUR)") + geom_text(aes(x=Category, y=10, label=paste(Percentage, "%", sep = ""), hjust=ifelse(sign(Percentage)>0, 0, 0)), position = position_dodge(width=1), size = 7)
 print(p)
 ```
 
@@ -122,13 +124,13 @@ print(p)
 dfs = df %>% group_by(Organization) %>% summarise(Costs = sum(Price)/1e6) %>% arrange(desc(Costs))
 dfs$Organization = factor(dfs$Organization, levels = rev(as.character(dfs$Organization)))
 dfs$Percentage = round(100 * dfs$Costs/sum(dfs$Costs), 1)
-p <- ggplot(dfs[1:20,], aes(x = Organization, y = Costs)) + geom_bar(stat = "identity", fill = "lightgray", color = "black") + ggtitle("Costs by organization") + coord_flip() + xlab("") + ylab("Total Costs (MEUR)") + geom_text(aes(x=Organization, y=4, label=paste(Percentage, "%", sep = ""), hjust=ifelse(sign(Percentage)>0, 0, 0)), position = position_dodge(width=1), size = 7)
+p <- ggplot(dfs[1:20,], aes(x = Organization, y = Costs)) + geom_bar(stat = "identity", fill = "lightgray", color = "black") + ggtitle("Costs by organization") + coord_flip() + xlab("") + ylab("Total Costs (MEUR)") + geom_text(aes(x=Organization, y=10, label=paste(Percentage, "%", sep = ""), hjust=ifelse(sign(Percentage)>0, 0, 0)), position = position_dodge(width=1), size = 7)
 print(p)
 
 dfs = df %>% group_by(Publisher) %>% summarise(Costs = sum(Price)/1e6) %>% arrange(desc(Costs))
 dfs$Publisher = factor(dfs$Publisher, levels = rev(as.character(dfs$Publisher)))
 dfs$Percentage = round(100 * dfs$Costs/sum(dfs$Costs), 1)
-p <- ggplot(dfs[1:20,], aes(x = Publisher, y = Costs)) + geom_bar(stat = "identity", fill = "lightgray", color = "black") + ggtitle("Costs by publisher") + coord_flip() + xlab("") + ylab("Total Costs (MEUR)") + geom_text(aes(x=Publisher, y=4, label=paste(Percentage, "%", sep = ""), hjust=ifelse(sign(Percentage)>0, 0, 0)), position = position_dodge(width=1), size = 7)
+p <- ggplot(dfs[1:20,], aes(x = Publisher, y = Costs)) + geom_bar(stat = "identity", fill = "lightgray", color = "black") + ggtitle("Costs by publisher") + coord_flip() + xlab("") + ylab("Total Costs (MEUR)") + geom_text(aes(x=Publisher, y=10, label=paste(Percentage, "%", sep = ""), hjust=ifelse(sign(Percentage)>0, 0, 0)), position = position_dodge(width=1), size = 7)
 print(p)
 
 dfs = df %>% group_by(Type) %>% summarise(Costs = sum(Price)/1e6) %>% arrange(desc(Costs))
@@ -137,18 +139,8 @@ dfs$Percentage = round(100 * dfs$Costs/sum(dfs$Costs), 1)
 ```
 
 
-## Publisher comparisons
-
-```{r foi-toppublishercosts, message=FALSE, eval=TRUE, echo=FALSE, fig.show="hold", out.width="200px"}
-# Total cost : all publishers
-dfs <- df %>% group_by(Publisher) %>% summarise(Cost = sum(Price)/1e6) %>% arrange(desc(Cost))
-colnames(dfs) = c("Publisher", "Cost (MEUR)")
-kable(head(dfs, 20))
-```
-
 
 ## Cost development over time
-
 
 ```{r foi-costperyear, message=FALSE, eval=TRUE, echo=FALSE, fig.show="hold", out.width="200px"}
 dfs = df %>% group_by(Year) %>% summarise(Costs = sum(Price)/1e6) %>% arrange(desc(Year))
@@ -159,7 +151,9 @@ Left: The total costs paid to scientific publishers by Finland 2010-2015. The an
 
 Right: Top-10 publishers (out of `r nrow(dfs)`) correspond to `r round(100 * sum(dfs[["Cost (MEUR)"]][1:10])/sum(dfs[["Cost (MEUR)"]]))`% of the overall costs.
 
-```{r foi-timebypublisher, message=FALSE, echo=FALSE, fig.width=10, fig.height=5}
+
+
+```{r foi-timebypublisher, message=FALSE, echo=FALSE, fig.width=10, fig.height=5, fig.show="hold", out.width="420px"}
 # Price, Year : all publishers
 # Growth percentage compared to previous year is shown
 dfs = df %>% group_by(Year) %>% summarise(Costs = sum(Price)/1e6) 
@@ -184,6 +178,7 @@ p <- ggplot(dfs, aes(x = Year, y = Costs, color = Publisher)) +
        ylab("Price (MEUR)") 
 print(p)
 ```
+
 
 
 
