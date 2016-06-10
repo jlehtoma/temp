@@ -1,0 +1,62 @@
+### Relative increase in costs 2015 vs 2010
+
+```{r foi-time, message=FALSE, eval=TRUE}
+dfs <- df %>% group_by(Year, Publisher) %>% summarise(Price = sum(Price)/1e6) %>% arrange(Year)
+dfss <- spread(dfs, Year, Price)
+kasvu <- unlist(dfss[, "2015"]/dfss[, "2010"]);
+names(kasvu) <- as.character(dfss$Publisher)
+#rev(sort(kasvu))
+
+# Relative prices with 2010 baseline
+# Top relative increase
+kustantajat <- dfss[,1]
+hinnat = as.matrix(dfss[, -1])
+hinnat <- hinnat/hinnat[,1]
+dfs2 <- as.data.frame(hinnat)
+dfs2$Publisher <- as.character(unlist(kustantajat, use.names = F))
+dfs2 <- dfs2[!is.na(dfs2[, "2015"]),]
+dfs2 <- dfs2[rev(order(dfs2[, "2015"])),]
+top <- as.character(unlist(dfs2$Publisher, use.names = F)[1:10])
+dfs3 <- dfs[unlist(dfs$Publisher) %in% top,]
+dfs3$Publisher <- as.character(unlist(dfs3$Publisher, use.names = F))
+dfs3$Publisher <- factor(dfs3$Publisher, levels = top)
+dfs3$Year <- as.numeric(as.character(dfs3$Year))
+dfs3$Price <- as.numeric(as.character(dfs3$Price))
+p <- ggplot(dfs3,
+       aes(x = Year, y = Price, color = Publisher)) +
+       geom_point() +
+       geom_line() +       
+       ggtitle("Relative price development by publisher") +
+       ylab("Price (EUR)") 
+print(p)
+```
+
+
+```{r foi-test, message=FALSE, echo=FALSE, fig.width=10, fig.height=5}
+URL <- paste0(
+        "https://cdn.rawgit.com/christophergandrud/networkD3/",
+        "master/JSONdata/energy.json")
+Energy <- jsonlite::fromJSON(URL)
+# Plot
+sankeyNetwork(Links = Energy$links, Nodes = Energy$nodes, Source = "source",
+             Target = "target", Value = "value", NodeID = "name",
+             units = "TWh", fontSize = 12, nodeWidth = 30)
+```
+
+dfs = df %>% group_by(Publisher) %>% summarise(Costs = sum(Price)/1e6) %>% arrange(desc(Costs))
+dfs$Publisher = factor(dfs$Publisher, levels = rev(as.character(dfs$Publisher)))
+dfs$Percentage = round(100 * dfs$Costs/sum(dfs$Costs), 1)
+names(dfs) = c("Publisher", "Total (MEUR)", "Percent (%)")
+write.csv(dfs, file = "table/cost_by_publisher.csv", quote = F, row.names = F)
+
+
+
+df$Aineisto
+
+library(stringr)
+e = list()
+s = str_trim(as.character(df$Aineisto))
+#e$nodes = data.frame(name = unique(unlist(strsplit(as.character(df$Aineisto), ";"))))
+e$nodes = data.frame(name = s)
+e$links
+
