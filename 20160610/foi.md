@@ -11,7 +11,7 @@ output:
 
 
 
-Publishers subscription costs in Finland 2010-2015
+Publisher subscription costs in Finland 2010-2015
 ===========
 
 
@@ -41,29 +41,29 @@ this data collection, made with a fully reproducible [source
 code](https://github.com/antagomir/temp/blob/master/20160610/foi.Rmd).
 
 
-### Data overview
-
- * Total costs for Finland 2010-2015: 128.9 million EUR 
- * 62 organizations 
- * 244 publishers
-
-
 ### Overall subscription costs 2010-2015
 
+
+
+
+## Overall publication costs 2010-2015
+
+ * Total costs for Finland 2010-2015: 128.9 million EUR
+ * 62 organizations ([Total costs by organization](table/cost_by_organization.csv))
+ * 244 publishers ([Total costs by publisher (complete table)](table/cost_by_publisher.csv))
+ * [Total costs by category](table/cost_by_category.csv)
+ * [Total costs by type](table/cost_by_type.csv)
+
+
 <img src="figure/foi-totalcosts-1.png" title="plot of chunk foi-totalcosts" alt="plot of chunk foi-totalcosts" width="430px" /><img src="figure/foi-totalcosts-2.png" title="plot of chunk foi-totalcosts" alt="plot of chunk foi-totalcosts" width="430px" />
+
+
 
 
 <img src="figure/foi-totalcosts2-1.png" title="plot of chunk foi-totalcosts2" alt="plot of chunk foi-totalcosts2" width="430px" /><img src="figure/foi-totalcosts2-2.png" title="plot of chunk foi-totalcosts2" alt="plot of chunk foi-totalcosts2" width="430px" />
 
 
-
-## Publication costs with top publishers 2010-2015
-
- * [Total costs by organization (complete table)](table/cost_by_organization.csv)
- * [Total costs by publisher (complete table)](table/cost_by_publisher.csv)
- * [Total costs by category](table/cost_by_category.csv)
- * [Total costs by type](table/cost_by_type.csv)
- * [Total costs by year](table/cost_by_year.csv)   
+## Publisher comparisons
 
 
 |Publisher                                                | Cost (MEUR)|
@@ -93,9 +93,11 @@ code](https://github.com/antagomir/temp/blob/master/20160610/foi.Rmd).
 ## Cost development over time
 
 
+
+
 Left: The total costs paid to scientific publishers by Finland 2010-2015. The annual increase is indicated.
 
-Right: Top-10 publishers (out of 244) correspond to 77% of the overall costs.
+Right: Top-10 publishers (out of 6) correspond to NaN% of the overall costs.
 
 ![plot of chunk foi-timebypublisher](figure/foi-timebypublisher-1.png)![plot of chunk foi-timebypublisher](figure/foi-timebypublisher-2.png)
 
