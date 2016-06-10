@@ -25,11 +25,11 @@ FOI request
  * [Total costs by year](table/cost_by_year.csv)   
 
 
-### Prices development over time
+### Total costs for Finland 2010-2015
 
-The total costs Finland paid to scientific publishers 2010-2015. The annual increase is indicated.
+The total costs paid to scientific publishers by Finland 2010-2015. The annual increase is indicated.
 
-<img src="figure/foi-plots-1.png" title="plot of chunk foi-plots" alt="plot of chunk foi-plots" width="400px" />
+<img src="figure/foi-timeline-1.png" title="plot of chunk foi-timeline" alt="plot of chunk foi-timeline" width="400px" />
 
 
 ## Publication costs with top publishers 2010-2015
