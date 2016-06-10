@@ -155,13 +155,13 @@ Right: Top-10 publishers (out of `r nrow(dfs)`) correspond to `r round(100 * sum
 
 
 
-```{r foi-timebypublisher, message=FALSE, echo=FALSE, fig.width=10, fig.height=5, fig.show="hold", out.width="420px"}
+```{r foi-timebypublisher, message=FALSE, echo=FALSE, fig.width=8, fig.height=5, fig.show="hold", out.width="420px"}
 # Price, Year : all publishers
 # Growth percentage compared to previous year is shown
 dfs = df %>% group_by(Year) %>% summarise(Costs = sum(Price)/1e6) 
 p <- ggplot(dfs, aes(x = Year, y = Costs)) +
        geom_bar(stat = "identity") + ggtitle("Total costs for Finland") +
-       geom_text(data = dfs[-1,], aes(x = Year, y = 1.042 * Costs,
+       geom_text(data = dfs[-1,], aes(x = Year, y = 1.045 * Costs,
      label = paste(round(100 * diff(dfs$Costs)/dfs$Costs[-length(dfs$Costs)], 1), "%", sep = "")   ),
      	   size = 8) +
        scale_x_continuous(breaks = 2010:2015, labels = c(2010:2015)) + 
