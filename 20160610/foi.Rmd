@@ -21,7 +21,7 @@ df <- read.csv(f, fileEncoding = "latin1")
 # Rename
 df = rename(df, Publisher = Kustantaja.Välittäjä)
 df = rename(df, Organization = Organisaation.nimi)
-df = rename(df, Material = Aineistotyyppi)
+df = rename(df, Category = Aineistotyyppi)
 df = rename(df, Type = Hankintatapa)
 df = rename(df, Year = Vuosi)
 df = rename(df, Price = Hinta)
@@ -66,14 +66,14 @@ dfs$Organisaation.tyyppi = factor(dfs$Organisaation.tyyppi, levels = as.characte
 p <- ggplot(dfs, aes(x = Organisaation.tyyppi, y = Costs)) + geom_bar(stat = "identity") + ggtitle("Costs by organization type") + coord_flip() + xlab("") + ylab("Total Costs (MEUR)")
 print(p)
 
-dfs = df %>% group_by(Material) %>% summarise(Costs = sum(Price)/1e6) %>% arrange(desc(Costs))
-dfs$Material = factor(dfs$Material, levels = rev(as.character(dfs$Material)))
+dfs = df %>% group_by(Category) %>% summarise(Costs = sum(Price)/1e6) %>% arrange(desc(Costs))
+dfs$Category = factor(dfs$Category, levels = rev(as.character(dfs$Category)))
 # Only consider the high-level categories
-dfss = dfs[-grep(";", dfs$Material),]
-p <- ggplot(dfss, aes(x = Material, y = Costs)) + geom_bar(stat = "identity") + ggtitle("Costs by material") + coord_flip() + xlab("") + ylab("Total Costs (MEUR)")
+dfss = dfs[-grep(";", dfs$Category),]
+p <- ggplot(dfss, aes(x = Category, y = Costs)) + geom_bar(stat = "identity") + ggtitle("Costs by category") + coord_flip() + xlab("") + ylab("Total Costs (MEUR)")
 print(p)
-names(dfs) = c("Material", "Total (MEUR)")
-write.csv(dfs, file = "table/cost_by_material.csv", quote = F, row.names = F)
+names(dfs) = c("Category", "Total (MEUR)")
+write.csv(dfs, file = "table/cost_by_category.csv", quote = F, row.names = F)
 ```
 
 
@@ -127,7 +127,7 @@ print(p)
 
  * [Total costs by organization (complete table)](table/cost_by_organization.csv)
  * [Total costs by publisher (complete table)](table/cost_by_publisher.csv)
- * [Total costs by material](table/cost_by_material.csv)
+ * [Total costs by category](table/cost_by_category.csv)
  * [Total costs by type](table/cost_by_type.csv)
  * [Total costs by year](table/cost_by_year.csv)   
 
