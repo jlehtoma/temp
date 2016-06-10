@@ -17,98 +17,12 @@ FOI request
 ### Data overview
 
 
-```r
-p <- ggplot(df, aes(x=reorder(Organisaation.tyyppi, table(Organisaation.tyyppi)[Organisaation.tyyppi]))) + geom_bar() + ggtitle("Organisaation tyyppi") + coord_flip() + xlab("") + ylab("Tietoja (N)")
-print(p)
 ```
-
-![plot of chunk foi-plots](figure/foi-plots-1.png)
-
-```r
-p <- ggplot(df, aes(x=reorder(Organisaation.nimi, table(Organisaation.nimi)[Organisaation.nimi]))) + geom_bar() + ggtitle("Organisaatio") + coord_flip() + xlab("") + ylab("Tietoja (N)")
-print(p)
+## Error: <text>:28:1: unexpected symbol
+## 27:        ylab("Hinta (EUR)")
+## 28: print
+##     ^
 ```
-
-![plot of chunk foi-plots](figure/foi-plots-2.png)
-
-```r
-p <- ggplot(df, aes(x=reorder(Kustantaja, table(Kustantaja)[Kustantaja]))) + geom_bar() + ggtitle("Kustantaja") + coord_flip() + xlab("") + ylab("Tietoja (N)")
-print(p)
-```
-
-![plot of chunk foi-plots](figure/foi-plots-3.png)
-
-```r
-p <- ggplot(df, aes(x=reorder(Aineistotyyppi, table(Aineistotyyppi)[Aineistotyyppi]))) + geom_bar() + ggtitle("Aineistotyyppi") + coord_flip() + xlab("") + ylab("Tietoja (N)")
-print(p)
-```
-
-![plot of chunk foi-plots](figure/foi-plots-4.png)
-
-```r
-p <- ggplot(df, aes(x=reorder(Hankintatapa, table(Hankintatapa)[Hankintatapa]))) + geom_bar() + ggtitle("Hankintatapa") + coord_flip() + xlab("") + ylab("Tietoja (N)")
-print(p)
-```
-
-![plot of chunk foi-plots](figure/foi-plots-5.png)
-
-```r
-p <- ggplot(df, aes(x=reorder(Vuosi, table(Vuosi)[Vuosi]))) + geom_bar() + ggtitle("Vuosi") + coord_flip() + xlab("") + ylab("Tietoja (N)")
-print(p)
-```
-
-![plot of chunk foi-plots](figure/foi-plots-6.png)
-
-```r
-# Hinta, Vuosi : all publishers
-# Growth percentage compared to previous year is shown
-dfs <- df %>% group_by(Vuosi) %>% summarise(Hinta = sum(Hinta)) %>% arrange(Vuosi)
-p <- ggplot(dfs, aes(x = Vuosi, y = Hinta)) +
-       geom_bar(stat = "identity") + ggtitle("Hintojen kehitys") +
-       geom_text(data = dfs[-1,], aes(x = Vuosi, y = 1.042 * Hinta,
-     label = round(100 * diff(dfs$Hinta)/dfs$Hinta[-length(dfs$Hinta)], 1)), size = 8) + 
-       ylab("Hinta (EUR)")
-print(p)
-```
-
-![plot of chunk foi-plots](figure/foi-plots-7.png)
-
-```r
-# Kokonaishinta : all publishers
-dfs <- df %>% group_by(Kustantaja) %>% summarise(Hinta = sum(Hinta)) %>% arrange(desc(Hinta))
-p <- ggplot(dfs, aes(x = Kustantaja, y = Hinta)) +
-       geom_bar(stat = "identity") + ggtitle("Maksut yhteensä") +
-       ylab("Hinta (EUR)")
-print(p)
-```
-
-![plot of chunk foi-plots](figure/foi-plots-8.png)
-
-```r
-# Top-10 publishers (out of nrow(dfs)) correspond to 77% overall costs
-sum(dfs$Hinta[1:10])/sum(dfs$Hinta)
-```
-
-```
-## [1] 0.7685746
-```
-
-```r
-top.publishers <- as.character(dfs$Kustantaja[1:10])
-
-# Hinta, Vuosi : individual publishers compared
-# Growth percentage compared to previous year is shown
-dfs <- dplyr::filter(df, Kustantaja %in% top.publishers) %>% group_by(Vuosi, Kustantaja) %>% summarise(Hinta = sum(Hinta)) %>% arrange(Vuosi)
-dfs$Kustantaja <- factor(dfs$Kustantaja, levels = top.publishers)
-p <- ggplot(dfs, aes(x = Vuosi, y = Hinta, color = Kustantaja)) +
-       geom_point() +
-       geom_line() +       
-       ggtitle("Kokonaishintojen kehitys kustantajittain") +
-       ylab("Hinta (EUR)") 
-print(p)
-```
-
-![plot of chunk foi-plots](figure/foi-plots-9.png)
 
 
 ### Relative increase in costs 2015 vs 2010

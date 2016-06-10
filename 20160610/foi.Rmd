@@ -29,7 +29,7 @@ df$Kustantaja.Välittäjä <- NULL
 
 ### Data overview
 
-```{r foi-plots, message=FALSE, eval=TRUE}
+```{r foi-plots, message=FALSE, eval=TRUE, echo=FALSE, fig.show="hold", out.width="200px"}
 p <- ggplot(df, aes(x=reorder(Organisaation.tyyppi, table(Organisaation.tyyppi)[Organisaation.tyyppi]))) + geom_bar() + ggtitle("Organisaation tyyppi") + coord_flip() + xlab("") + ylab("Tietoja (N)")
 print(p)
 
@@ -55,7 +55,7 @@ dfs <- df %>% group_by(Vuosi) %>% summarise(Hinta = sum(Hinta)) %>% arrange(Vuos
 p <- ggplot(dfs, aes(x = Vuosi, y = Hinta)) +
        geom_bar(stat = "identity") + ggtitle("Hintojen kehitys") +
        geom_text(data = dfs[-1,], aes(x = Vuosi, y = 1.042 * Hinta,
-     label = round(100 * diff(dfs$Hinta)/dfs$Hinta[-length(dfs$Hinta)], 1)), size = 8) + 
+     label = paste(round(100 * diff(dfs$Hinta)/dfs$Hinta[-length(dfs$Hinta)], 1), "%", sep = ""), size = 8) + 
        ylab("Hinta (EUR)")
 print(p)
 
