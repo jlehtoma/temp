@@ -21,7 +21,9 @@ FOI request
 ## [1] 0.7685746
 ```
 
-<img src="figure/foi-plots-1.png" title="plot of chunk foi-plots" alt="plot of chunk foi-plots" width="200px" /><img src="figure/foi-plots-2.png" title="plot of chunk foi-plots" alt="plot of chunk foi-plots" width="200px" /><img src="figure/foi-plots-3.png" title="plot of chunk foi-plots" alt="plot of chunk foi-plots" width="200px" /><img src="figure/foi-plots-4.png" title="plot of chunk foi-plots" alt="plot of chunk foi-plots" width="200px" /><img src="figure/foi-plots-5.png" title="plot of chunk foi-plots" alt="plot of chunk foi-plots" width="200px" /><img src="figure/foi-plots-6.png" title="plot of chunk foi-plots" alt="plot of chunk foi-plots" width="200px" /><img src="figure/foi-plots-7.png" title="plot of chunk foi-plots" alt="plot of chunk foi-plots" width="200px" /><img src="figure/foi-plots-8.png" title="plot of chunk foi-plots" alt="plot of chunk foi-plots" width="200px" /><img src="figure/foi-plots-9.png" title="plot of chunk foi-plots" alt="plot of chunk foi-plots" width="200px" />
+<img src="figure/foi-plots-1.png" title="plot of chunk foi-plots" alt="plot of chunk foi-plots" width="400px" /><img src="figure/foi-plots-2.png" title="plot of chunk foi-plots" alt="plot of chunk foi-plots" width="400px" /><img src="figure/foi-plots-3.png" title="plot of chunk foi-plots" alt="plot of chunk foi-plots" width="400px" /><img src="figure/foi-plots-4.png" title="plot of chunk foi-plots" alt="plot of chunk foi-plots" width="400px" /><img src="figure/foi-plots-5.png" title="plot of chunk foi-plots" alt="plot of chunk foi-plots" width="400px" /><img src="figure/foi-plots-6.png" title="plot of chunk foi-plots" alt="plot of chunk foi-plots" width="400px" /><img src="figure/foi-plots-7.png" title="plot of chunk foi-plots" alt="plot of chunk foi-plots" width="400px" /><img src="figure/foi-plots-8.png" title="plot of chunk foi-plots" alt="plot of chunk foi-plots" width="400px" />
+
+<img src="figure/foi-timebypublisher-1.png" title="plot of chunk foi-timebypublisher" alt="plot of chunk foi-timebypublisher" width="200px" />
 
 
 ### Relative increase in costs 2015 vs 2010
