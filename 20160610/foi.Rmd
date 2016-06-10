@@ -1,16 +1,12 @@
 ---
 title: "Scientific subscription costs in Finland 2010-2015"
-author: [Leo Lahti](http://www.iki.fi/Leo.Lahti)
+author: Leo Lahti
 date: "`r Sys.Date()`"
 output: 
   md_document:
     variant: markdown_github
 ---
-<!--
-  %\VignetteEngine{knitr::rmarkdown}
-  %\VignetteIndexEntry{microbiome tutorial}
-  %\usepackage[utf8]{inputenc}
--->
+
 
 ```{r foi-init, message=FALSE, echo=FALSE}
 library(dplyr)
