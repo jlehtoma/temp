@@ -73,7 +73,7 @@ write.csv(dfs, file = "table/cost_by_category.csv", quote = F, row.names = F)
 dfs <- df %>% group_by(Year, Organization) %>% summarise(Costs = sum(Price, na.rm = TRUE)/1e6) %>% arrange(Year) %>% spread(Year, Costs)
 dfs[is.na(dfs)] = 0
 dfs$Organization = as.character(dfs$Organization)
-dfs = rbind(dfs, c("Total", colSums(dfs[, as.character(c(2010:2015))])))
+dfs = rbind(dfs, c("Total", round(colSums(dfs[, as.character(c(2010:2015))]), 1)))
 dfs$Total = round(rowSums(dfs[, as.character(2010:2015)], na.rm = TRUE), 1)
 dfs[, as.character(c(2010:2015))] = round(dfs[, as.character(c(2010:2015))], 1)
 dfs$Percentage = round(100 * dfs$Total/sum(dfs$Total), 1)
