@@ -57,7 +57,7 @@ type](table/cost_by_type.csv), organization type, and [subscription
 category](table/cost_by_category.csv).
 
 
-<img src="figure/foi-totalcosts-1.png" title="plot of chunk foi-totalcosts" alt="plot of chunk foi-totalcosts" width="430px" /><img src="figure/foi-totalcosts-2.png" title="plot of chunk foi-totalcosts" alt="plot of chunk foi-totalcosts" width="430px" />
+<img src="figure/foi-totalcosts-1.png" title="plot of chunk foi-totalcosts" alt="plot of chunk foi-totalcosts" width="430px" />
 
 
 ### Costs by publisher
@@ -71,8 +71,7 @@ Interestingly, over one third of the total costs go to Elsevier, which is often 
 
 
 
-The total costs paid to scientific publishers by Finland increase roughly 10% per year (annual increase is indicated in the left figure). The top-10 publishers (out of 244) correspond to 77% of the overall costs.
-
+The total costs paid to scientific publishers by Finland have increased roughly 10% per year in 2010-2015 (annual increase is indicated in the left figure). The top-10 publishers (out of 244) correspond to 77% of the overall costs (right figure). The full [annual costs by publisher](table/cost_by_publisher_year.csv) are in a separate table.
 
 <img src="figure/foi-costbytime-1.png" title="plot of chunk foi-costbytime" alt="plot of chunk foi-costbytime" width="840px" />
 
@@ -81,11 +80,13 @@ The total costs paid to scientific publishers by Finland increase roughly 10% pe
 
 ### Costs by organization
 
- * 62 organizations ([table of annual costs by organization](table/cost_by_organization_year.csv))
 
 
-<img src="figure/foi-totalcosts2-1.png" title="plot of chunk foi-totalcosts2" alt="plot of chunk foi-totalcosts2" width="430px" />
+The Finnish data collection includes 62 organizations ([table of annual costs by organization](table/cost_by_organization_year.csv)). The universities (yliopisto) correspond to 80.4% of all costs (left figure); University of Helsinki has the highest total costs 2010-2015 (24.4 MEUR; right figure).
 
+<img src="figure/foi-totalcosts2d-1.png" title="plot of chunk foi-totalcosts2d" alt="plot of chunk foi-totalcosts2d" width="420px" /><img src="figure/foi-totalcosts2d-2.png" title="plot of chunk foi-totalcosts2d" alt="plot of chunk foi-totalcosts2d" width="420px" />
+
+As could be expected, the costs increase evenly across institutions. 
 
 ![plot of chunk foi-timebyorganization2](figure/foi-timebyorganization2-1.png)
 
