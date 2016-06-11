@@ -123,9 +123,12 @@ write.csv(dfs, file = "table/cost_by_type.csv", quote = F, row.names = F)
 
 Based on the data collected by the Ministry of Education, Finland paid
 `r round(sum(df$Price)/1e6, 1)` million EUR subscription and other
-fees on scientific publishing during 2010-2015. It seems to me that
-open access publishing fees are not included, as I could not find some
-major open access players (PLoS, BMC) from the list.
+fees on scientific publishing during 2010-2015.
+
+It seems to me that the data contains only the subscription fees, and
+not open access publishing fees, as I could not find some major open
+access players from the list. It was recently reported by [Naukkarinen (2016)](https://avointiede.fi/documents/10864/12232/Avoimen+julkaisemisen+tuen+malli/73838e9b-7924-446c-9c7a-cc8f759919bb) that in 2014 [18% of the articles in Finnish universities were published as open access](https://l.facebook.com/l.php?u=https%3A%2F%2Favointiede.fi%2Fdocuments%2F10864%2F12232%2FAvoimen%2Bjulkaisemisen%2Btuen%2Bmalli%2F73838e9b-7924-446c-9c7a-cc8f759919bb&h=-AQFlKomT). Importantly, it was also estimated that the costs would have been lower if all articles were published as Open Access (hypothetical 17 MEUR instead of the realized 22 MEUR).
+
 
 Information is also available on the [agreement
 type](table/cost_by_type.csv), organization type, and [subscription
@@ -204,15 +207,13 @@ grid.arrange(p1, p2, widths=c(5, 9))
 ```
 
 
-
-
 ### Costs by organization
 
 ```{r foi-totalcosts2c, message=FALSE, echo=FALSE}
 dfs = df %>% group_by(Organization.type) %>% summarise(Costs = 100*sum(Price)/sum(df$Price))
 ```
 
-The Finnish data collection includes `r length(unique(df$Organization))` organizations ([see annual costs by organization](table/cost_by_organization_year.csv)). The universities (yliopisto) carry `r as.numeric(round(dfs[dfs$Organization.type == "University", "Costs"],1))`% of all costs (left figure); University of Helsinki has the highest total costs 2010-2015 (`r round(as.numeric((dfs = df %>% group_by(Organization) %>% summarise(Costs = sum(Price)/1e6) %>% arrange(desc(Costs)))[1, "Costs"]),1)` MEUR; right figure).
+The Finnish data collection includes `r length(unique(df$Organization))` organizations ([see annual costs by organization](table/cost_by_organization_year.csv)). The universities ('yliopisto') carry `r as.numeric(round(dfs[dfs$Organization.type == "University", "Costs"],1))`% of all costs (left figure); University of Helsinki has the highest total costs 2010-2015 (`r round(as.numeric((dfs = df %>% group_by(Organization) %>% summarise(Costs = sum(Price)/1e6) %>% arrange(desc(Costs)))[1, "Costs"]),1)` MEUR; right figure).
 
 ```{r foi-totalcosts2d, message=FALSE, echo=FALSE, fig.show="hold", out.width="420px", fig.width = 10, fig.height = 9}
 dfs = df %>% group_by(Organization.type) %>% summarise(Costs = sum(Price)/1e6) %>% arrange(Costs)
