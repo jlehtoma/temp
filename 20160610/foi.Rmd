@@ -34,30 +34,31 @@ Publisher subscription costs in Finland 2010-2015
 ===========
 
 
-### Background
+## Background
 
-Following [Tim Gowers FOI request on scientific subscription costs in
+Following [Tim Gowers successful FOI request on the subscription costs
+for scientific journals in
 UK](http://gowers.wordpress.com/2014/04/24/elsevier-journals-some-facts/),
-we made a similar request in Finland together with [OKF
-Finland](http://fi.okfn.org/wg/openscience/) and [other open science
-enthusiasts](https://www.facebook.com/groups/241398182642057/permalink/411482855633588).
+we made a similar request in Finland together with the [Open Knowledge
+Finland association and other Open Science
+advocates](https://www.facebook.com/groups/241398182642057/permalink/411482855633588).
 
-I sent the FOI request to Finnish universities in summer 2014. After
-their denial to release the data we appealed in court, which decided
-the case positive for us in August 2015. The Finnish Ministry of
-Education [Open Science Initiative](http://openscience.fi) then
-collected and organized the data, which has now been released on
-[their website](). The overall process is summarized in another [blog
-post]().
+After the Finnish universities turned down my FOI request in summer
+2014, we appealed in court, which decided the case positive for us in
+August 2015. The Finnish Ministry of Education [Open Science
+Initiative](http://openscience.fi) then organized the [data release]()
+as summarized [elsewhere]().
 
-Related data have been collected in a few countries (see Stuart
-Lawson's [recent
+Related data have been collected in a few countries, as summarized in
+Stuart Lawson's [recent
 post](http://stuartlawson.org/2016/06/publicly-available-data-on-international-journal-subscription-costs).
 However, Finland is now one of the first countries (after US and UK)
-where the subscription fees are available over several years at the
-level of individual publishers. Below is a preliminary analysis of
-this data collection, made with a fully reproducible [source
-code](https://github.com/antagomir/temp/blob/master/20160610/foi.Rmd).
+where the subscription fees are available at the level of individual
+publishers.
+
+Below we present a preliminary analysis of this data collection based
+on automated document generation with rmarkdown (see [source
+code](https://github.com/antagomir/temp/blob/master/20160610/foi.Rmd)).
 
 
 ## Overall subscription costs 2010-2015
@@ -103,9 +104,7 @@ write.csv(dfs, file = "table/cost_by_type.csv", quote = F, row.names = F)
 ```
 
  * Total costs for Finland 2010-2015: `r round(sum(df$Price)/1e6, 1)` million EUR
- * `r length(unique(df$Organization))` organizations ([annual costs by organization](table/cost_by_organization_year.csv))
- * `r length(unique(df$Publisher))` publishers ([annual costs by publisher](table/cost_by_publisher_year.csv))
- * [Total costs by category](table/cost_by_category.csv)
+ * [Total costs by subscription category](table/cost_by_category.csv)
  * [Total costs by agreement type](table/cost_by_type.csv)
 
 
@@ -126,14 +125,11 @@ print(p)
 ```
 
 
+### Costs by publisher
 
-```{r foi-totalcosts2, message=FALSE, echo=FALSE, fig.show="hold", out.width="430px", fig.width = 10, fig.height = 9}
-dfs = df %>% group_by(Organization) %>% summarise(Costs = sum(Price)/1e6) %>% arrange(desc(Costs))
-dfs$Organization = factor(dfs$Organization, levels = rev(as.character(dfs$Organization)))
-dfs$Percentage = round(100 * dfs$Costs/sum(dfs$Costs), 1)
-p <- ggplot(dfs[1:20,], aes(x = Organization, y = Costs)) + geom_bar(stat = "identity", fill = "lightgray", color = "black") + ggtitle("Costs by organization") + coord_flip() + xlab("") + ylab("Total Costs (MEUR)") + geom_text(aes(x=Organization, y=20, label=paste(Percentage, "%", sep = ""), hjust=ifelse(sign(Percentage)>0, 0, 0)), position = position_dodge(width=1), size = 7)
-print(p)
+ * `r length(unique(df$Publisher))` publishers ([table of annual costs by publisher](table/cost_by_publisher_year.csv))
 
+```{r foi-totalcosts2b, message=FALSE, echo=FALSE, fig.show="hold", out.width="430px", fig.width = 10, fig.height = 9}
 dfs = df %>% group_by(Publisher) %>% summarise(Costs = sum(Price)/1e6) %>% arrange(desc(Costs))
 dfs$Publisher = factor(dfs$Publisher, levels = rev(as.character(dfs$Publisher)))
 dfs$Percentage = round(100 * dfs$Costs/sum(dfs$Costs), 1)
@@ -146,16 +142,12 @@ dfs$Percentage = round(100 * dfs$Costs/sum(dfs$Costs), 1)
 ```
 
 
-
-## Cost development over time
-
 ```{r foi-costperyear, message=FALSE, eval=TRUE, echo=FALSE, fig.show="hold", out.width="200px"}
 dfs = df %>% group_by(Year) %>% summarise(Costs = sum(Price)/1e6) %>% arrange(desc(Year))
 names(dfs) = c("Year", "Total (MEUR)")
 ```
 
 Total costs paid to scientific publishers by Finland 2010-2015. The annual increase is indicated.
-
 
 ```{r foi-costbytime, message=FALSE, echo=FALSE, fig.width=8, fig.height=5}
 # Price, Year : all publishers
@@ -176,7 +168,7 @@ dfs = df %>% group_by(Publisher) %>% summarise(Costs = sum(Price, na.rm = TRUE))
 
 Top-10 publishers (out of `r nrow(dfs)`) correspond to `r round(100 * sum(dfs[["Costs"]][1:10])/sum(dfs[["Costs"]]))`% of the overall costs.
 
-```{r foi-timebypublisher2, message=FALSE, echo=FALSE, fig.width=12, fig.heigth=4}
+```{r foi-timebypublisher2, message=FALSE, echo=FALSE, fig.width=12, fig.heigth=3}
 top.publishers <- as.character(dfs$Publisher[1:10])
 dfs <- dplyr::filter(df, Publisher %in% top.publishers) %>% group_by(Year, Publisher) %>% summarise(Costs = sum(Price)/1e6) %>% arrange(Year)
 dfs$Publisher <- factor(dfs$Publisher, levels = top.publishers)
@@ -189,7 +181,21 @@ print(p)
 ```
 
 
-```{r foi-timebyorganization2, message=FALSE, echo=FALSE, fig.width=12, fig.heigth=4}
+### Costs by organization
+
+ * `r length(unique(df$Organization))` organizations ([table of annual costs by organization](table/cost_by_organization_year.csv))
+
+
+```{r foi-totalcosts2, message=FALSE, echo=FALSE, fig.show="hold", out.width="430px", fig.width = 10, fig.height = 9}
+dfs = df %>% group_by(Organization) %>% summarise(Costs = sum(Price)/1e6) %>% arrange(desc(Costs))
+dfs$Organization = factor(dfs$Organization, levels = rev(as.character(dfs$Organization)))
+dfs$Percentage = round(100 * dfs$Costs/sum(dfs$Costs), 1)
+p <- ggplot(dfs[1:20,], aes(x = Organization, y = Costs)) + geom_bar(stat = "identity", fill = "lightgray", color = "black") + ggtitle("Costs by organization") + coord_flip() + xlab("") + ylab("Total Costs (MEUR)") + geom_text(aes(x=Organization, y=20, label=paste(Percentage, "%", sep = ""), hjust=ifelse(sign(Percentage)>0, 0, 0)), position = position_dodge(width=1), size = 7)
+print(p)
+```
+
+
+```{r foi-timebyorganization2, message=FALSE, echo=FALSE, fig.width=12, fig.heigth=3}
 dfs = df %>% group_by(Organization) %>% summarise(Costs = sum(Price, na.rm = TRUE)) %>% arrange(desc(Costs))
 top <- as.character(dfs$Organization[1:10])
 dfs <- dplyr::filter(df, Organization %in% top) %>% group_by(Year, Organization) %>% summarise(Costs = sum(Price)/1e6) %>% arrange(Year)
@@ -201,10 +207,5 @@ p <- ggplot(dfs, aes(x = Year, y = Costs, color = Organization)) +
        ylab("Costs (MEUR)") 
 print(p)
 ```
-
-
-
-
-
 
 
