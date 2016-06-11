@@ -164,7 +164,7 @@ dfs = df %>% group_by(Year) %>% summarise(Costs = sum(Price)/1e6)
 p <- ggplot(dfs, aes(x = Year, y = Costs)) +
        geom_bar(stat = "identity", fill = "lightgray", color = "black") + ggtitle("Total costs for Finland") +
        geom_text(data = dfs[-1,], aes(x = Year, y = 1.5,
-     label = paste("\+", round(100 * diff(dfs$Costs)/dfs$Costs[-length(dfs$Costs)], 1), "%", sep = "")   ),
+     label = paste(round(100 * diff(dfs$Costs)/dfs$Costs[-length(dfs$Costs)], 1), "%", sep = "")   ),
      	   size = 6) +
        scale_x_continuous(breaks = 2010:2015, labels = c(2010:2015)) + 
        ylab("Costs (MEUR)")

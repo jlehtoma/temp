@@ -68,13 +68,10 @@ code](https://github.com/antagomir/temp/blob/master/20160610/foi.Rmd).
 Total costs paid to scientific publishers by Finland 2010-2015. The annual increase is indicated.
 
 
-
-```
-## Error: '\+' is an unrecognized escape in character string starting ""\+"
-```
+![plot of chunk foi-costbytime](figure/foi-costbytime-1.png)
 
 
-Top-10 publishers (out of 6) correspond to NaN% of the overall costs.
+Top-10 publishers (out of 244) correspond to 77% of the overall costs.
 
 ![plot of chunk foi-timebypublisher2](figure/foi-timebypublisher2-1.png)
 
