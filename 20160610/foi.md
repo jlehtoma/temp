@@ -45,25 +45,6 @@ code](https://github.com/antagomir/temp/blob/master/20160610/foi.Rmd).
 
 
 
-```
-## Error in rowSums(dfs[, as.character(2010:2015)], na.rm = TRUE): 'x' must be numeric
-```
-
-```
-## Error in Math.data.frame(structure(list(`2010` = c("2.248623", "0.747629", : non-numeric variable in data frame: 201020112012201320142015
-```
-
-```
-## Error in `$<-.data.frame`(`*tmp*`, "Percentage", value = numeric(0)): replacement has 0 rows, data has 63
-```
-
-```
-## Error in eval(expr, envir, enclos): object 'Percentage' not found
-```
-
-```
-## Error in names(dfs) = c("Organization (costs in MEUR)", as.character(2010:2015), : 'names' attribute [9] must be the same length as the vector [7]
-```
 
 
 ## Overall publication costs 2010-2015
