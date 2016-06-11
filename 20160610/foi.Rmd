@@ -212,7 +212,7 @@ grid.arrange(p1, p2, widths=c(3, 9))
 dfs = df %>% group_by(Organization.type) %>% summarise(Costs = 100*sum(Price)/sum(df$Price))
 ```
 
-The Finnish data collection includes `r length(unique(df$Organization))` organizations ([table of annual costs by organization](table/cost_by_organization_year.csv)). The universities (yliopisto) correspond to `r as.numeric(round(dfs[dfs$Organization.type == "University", "Costs"],1))`% of all costs (left figure); University of Helsinki has the highest total costs 2010-2015 (`r round(as.numeric((dfs = df %>% group_by(Organization) %>% summarise(Costs = sum(Price)/1e6) %>% arrange(desc(Costs)))[1, "Costs"]),1)` MEUR; right figure).
+The Finnish data collection includes `r length(unique(df$Organization))` organizations ([see annual costs by organization](table/cost_by_organization_year.csv)). The universities (yliopisto) carry `r as.numeric(round(dfs[dfs$Organization.type == "University", "Costs"],1))`% of all costs (left figure); University of Helsinki has the highest total costs 2010-2015 (`r round(as.numeric((dfs = df %>% group_by(Organization) %>% summarise(Costs = sum(Price)/1e6) %>% arrange(desc(Costs)))[1, "Costs"]),1)` MEUR; right figure).
 
 ```{r foi-totalcosts2d, message=FALSE, echo=FALSE, fig.show="hold", out.width="420px", fig.width = 10, fig.height = 9}
 dfs = df %>% group_by(Organization.type) %>% summarise(Costs = sum(Price)/1e6) %>% arrange(Costs)
@@ -230,7 +230,7 @@ print(p)
 
 As could be expected, the costs increase evenly across institutions. 
 
-```{r foi-timebyorganization2, message=FALSE, echo=FALSE, fig.width=15, fig.heigth=2}
+```{r foi-timebyorganization2, message=FALSE, echo=FALSE, fig.width=12, fig.heigth=2}
 dfs = df %>% group_by(Organization) %>% summarise(Costs = sum(Price, na.rm = TRUE)) %>% arrange(desc(Costs))
 top <- as.character(dfs$Organization[1:10])
 dfs <- dplyr::filter(df, Organization %in% top) %>% group_by(Year, Organization) %>% summarise(Costs = sum(Price)/1e6) %>% arrange(Year)

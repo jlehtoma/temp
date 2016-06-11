@@ -82,7 +82,7 @@ The total costs paid to scientific publishers by Finland have increased roughly 
 
 
 
-The Finnish data collection includes 62 organizations ([table of annual costs by organization](table/cost_by_organization_year.csv)). The universities (yliopisto) correspond to 80.4% of all costs (left figure); University of Helsinki has the highest total costs 2010-2015 (24.4 MEUR; right figure).
+The Finnish data collection includes 62 organizations ([see annual costs by organization](table/cost_by_organization_year.csv)). The universities (yliopisto) carry 80.4% of all costs (left figure); University of Helsinki has the highest total costs 2010-2015 (24.4 MEUR; right figure).
 
 <img src="figure/foi-totalcosts2d-1.png" title="plot of chunk foi-totalcosts2d" alt="plot of chunk foi-totalcosts2d" width="420px" /><img src="figure/foi-totalcosts2d-2.png" title="plot of chunk foi-totalcosts2d" alt="plot of chunk foi-totalcosts2d" width="420px" />
 
