@@ -76,7 +76,7 @@ dfs$Total = rowSums(dfs[, as.character(2010:2015)], na.rm = TRUE)
 dfs[, as.character(c(2010:2015))] = round(dfs[, as.character(c(2010:2015))], 3)
 dfs$Percentage = round(100 * dfs$Total/sum(dfs$Total), 1)
 dfs = dfs %>% arrange(desc(Percentage))
-names(dfs) = c("Organization", paste(as.character(2010:2015), "\n(MEUR)"), "Total (MEUR)", "Percent (%)")
+names(dfs) = c("Organization", paste(as.character(2010:2015), "(MEUR)"), "Total (MEUR)", "Percent (%)")
 write.csv(dfs, file = "table/cost_by_organization_year.csv", quote = F, row.names = F)
 
 dfs <- df %>% group_by(Year, Publisher) %>% summarise(Costs = sum(Price, na.rm = TRUE)/1e6) %>% arrange(Year) %>% spread(Year, Costs)
