@@ -74,7 +74,7 @@ Interestingly, over one third of the total costs go to Elsevier, which is often 
 The total costs paid to scientific publishers by Finland increase roughly 10% per year (annual increase is indicated in the left figure). The top-10 publishers (out of 244) correspond to 77% of the overall costs.
 
 
-<img src="figure/foi-costbytime-1.png" title="plot of chunk foi-costbytime" alt="plot of chunk foi-costbytime" width="800px" />
+<img src="figure/foi-costbytime-1.png" title="plot of chunk foi-costbytime" alt="plot of chunk foi-costbytime" width="840px" />
 
 
 

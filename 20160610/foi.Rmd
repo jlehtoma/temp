@@ -182,7 +182,7 @@ dfs = df %>% group_by(Publisher) %>% summarise(Costs = sum(Price)/1e6) %>% arran
 The total costs paid to scientific publishers by Finland increase roughly 10% per year (annual increase is indicated in the left figure). The top-10 publishers (out of `r length(unique(df$Publisher))`) correspond to `r round(100 * sum(dfs[["Costs"]][1:10])/sum(dfs[["Costs"]]))`% of the overall costs.
 
 
-```{r foi-costbytime, message=FALSE, echo=FALSE, fig.width=18, fig.height=5, out.width="800px"}
+```{r foi-costbytime, message=FALSE, echo=FALSE, fig.width=15, fig.height=6, out.width="840px"}
 # Price, Year : all publishers
 # Growth percentage compared to previous year is shown
 dfs = df %>% group_by(Year) %>% summarise(Costs = sum(Price)/1e6) 
