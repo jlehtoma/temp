@@ -206,9 +206,8 @@ p2 <- ggplot(dfs2, aes(x = Year, y = Costs, color = Publisher)) +
        ylab("Costs (MEUR)") 
 #print(p2)
 
-library(cowplot)
-p <- plot_grid(p1, p2, labels = c('A', 'B'), align = 'h', rel_widths = c(1, 4))
-print(p)
+library(gridExtra)
+grid.arrange(p1, p2, widths=c(2, 5))
 ```
 
 
