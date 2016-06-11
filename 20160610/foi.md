@@ -52,7 +52,7 @@ fees on scientific publishing during 2010-2015.
 
 It seems to me that the data contains only the subscription fees, and
 not open access publishing fees, as I could not find some major open
-access players from the list. It was recently reported by [Naukkarinen (2016)](https://avointiede.fi/documents/10864/12232/Avoimen+julkaisemisen+tuen+malli/73838e9b-7924-446c-9c7a-cc8f759919bb) that in 2014 [18% of the articles in Finnish universities were published as open access](https://l.facebook.com/l.php?u=https%3A%2F%2Favointiede.fi%2Fdocuments%2F10864%2F12232%2FAvoimen%2Bjulkaisemisen%2Btuen%2Bmalli%2F73838e9b-7924-446c-9c7a-cc8f759919bb&h=-AQFlKomT). Importantly, it was also estimated that the costs would have been lower if all articles were published as Open Access (hypothetical 17 MEUR instead of the realized 22 MEUR).
+access players from the list. It was recently reported by [Naukkarinen (2016)](https://avointiede.fi/documents/10864/12232/Avoimen+julkaisemisen+tuen+malli/73838e9b-7924-446c-9c7a-cc8f759919bb) that in 2014 [18% of the articles in Finnish universities were published as open access](https://l.facebook.com/l.php?u=https%3A%2F%2Favointiede.fi%2Fdocuments%2F10864%2F12232%2FAvoimen%2Bjulkaisemisen%2Btuen%2Bmalli%2F73838e9b-7924-446c-9c7a-cc8f759919bb&h=-AQFlKomT). Importantly, it was also estimated that publishing all articles as Open Access would have cost 17 MEUR, where as the subscription fees were 22 MEUR. This observation would support the transition to the Open Access model
 
 
 Information is also available on the [agreement
@@ -83,7 +83,7 @@ The total costs paid to scientific publishers by Finland have increased roughly 
 
 
 
-The Finnish data collection includes 62 organizations ([see annual costs by organization](table/cost_by_organization_year.csv)). The universities ('yliopisto') carry 80.4% of all costs (left figure); University of Helsinki has the highest total costs 2010-2015 (24.4 MEUR; right figure).
+The Finnish data collection includes 62 organizations ([see annual costs by organization](table/cost_by_organization_year.csv)). The universities ('yliopisto') carry 80.4% of all costs (left figure); University of Helsinki has the highest total costs 2010-2015 (24.4 MEUR; top institutions shown in the right figure).
 
 <img src="figure/foi-totalcosts2d-1.png" title="plot of chunk foi-totalcosts2d" alt="plot of chunk foi-totalcosts2d" width="420px" /><img src="figure/foi-totalcosts2d-2.png" title="plot of chunk foi-totalcosts2d" alt="plot of chunk foi-totalcosts2d" width="420px" />
 
