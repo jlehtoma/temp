@@ -186,31 +186,29 @@ The total costs paid to scientific publishers by Finland increase roughly 10% pe
 # Price, Year : all publishers
 # Growth percentage compared to previous year is shown
 dfs = df %>% group_by(Year) %>% summarise(Costs = sum(Price)/1e6) 
-p <- ggplot(dfs, aes(x = Year, y = Costs)) +
+p1 <- ggplot(dfs, aes(x = Year, y = Costs)) +
        geom_bar(stat = "identity", fill = "lightgray", color = "black") + ggtitle("Total costs for Finland") +
        geom_text(data = dfs[-1,], aes(x = Year, y = 1.5,
      label = paste(round(100 * diff(dfs$Costs)/dfs$Costs[-length(dfs$Costs)], 1), "%", sep = "")   ),
      	   size = 6) +
        scale_x_continuous(breaks = 2010:2015, labels = c(2010:2015)) + 
        ylab("Costs (MEUR)")
-p1 <- p       
-#print(p)
+#print(p1)
 
-dfs = df %>% group_by(Publisher) %>% summarise(Costs = sum(Price, na.rm = TRUE)) %>% arrange(desc(Costs))
-
-top.publishers <- as.character(dfs$Publisher[1:10])
-dfs <- dplyr::filter(df, Publisher %in% top.publishers) %>% group_by(Year, Publisher) %>% summarise(Costs = sum(Price)/1e6) %>% arrange(Year)
-dfs$Publisher <- factor(dfs$Publisher, levels = top.publishers)
-p <- ggplot(dfs, aes(x = Year, y = Costs, color = Publisher)) +
+dfss = df %>% group_by(Publisher) %>% summarise(Costs = sum(Price, na.rm = TRUE)) %>% arrange(desc(Costs))
+top.publishers <- as.character(dfss$Publisher[1:10])
+dfs2 <- dplyr::filter(df, Publisher %in% top.publishers) %>% group_by(Year, Publisher) %>% summarise(Costs = sum(Price)/1e6) %>% arrange(Year)
+dfs2$Publisher <- factor(dfs2$Publisher, levels = top.publishers)
+p2 <- ggplot(dfs2, aes(x = Year, y = Costs, color = Publisher)) +
        geom_point() +
        geom_line() +       
        ggtitle("Cost development by publisher") +
        ylab("Costs (MEUR)") 
-p2 <- p       
-#print(p)
+#print(p2)
 
 library(cowplot)
-p <- plot_grid(p1, p2, labels = c('B', 'C'), align = 'h', rel_widths = c(1, 1.3))
+p <- plot_grid(p1, p2, labels = c('B', 'C'), align = 'h', rel_widths = c(1, 2))
+print(p)
 ```
 
 
