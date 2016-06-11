@@ -176,7 +176,7 @@ dfs$Percentage = round(100 * dfs$Costs/sum(dfs$Costs), 1)
 
 
 ```{r foi-costperyear, message=FALSE, eval=TRUE, echo=FALSE, fig.show="hold", out.width="200px"}
-dfs = df %>% group_by(Year) %>% summarise(Costs = sum(Price)/1e6) %>% arrange(desc(Year))
+dfs = df %>% group_by(Publisher) %>% summarise(Costs = sum(Price)/1e6) %>% arrange(desc(Costs))
 ```
 
 The total costs paid to scientific publishers by Finland increase roughly 10% per year (annual increase is indicated in the left figure). The top-10 publishers (out of `r length(unique(df$Publisher))`) correspond to `r round(100 * sum(dfs[["Costs"]][1:10])/sum(dfs[["Costs"]]))`% of the overall costs.
