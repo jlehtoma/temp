@@ -230,7 +230,7 @@ print(p)
 
 As could be expected, the costs increase evenly across institutions. 
 
-```{r foi-timebyorganization2, message=FALSE, echo=FALSE, fig.width=12, fig.heigth=2}
+```{r foi-timebyorganization2, message=FALSE, echo=FALSE, fig.width=10, fig.heigth=2}
 dfs = df %>% group_by(Organization) %>% summarise(Costs = sum(Price, na.rm = TRUE)) %>% arrange(desc(Costs))
 top <- as.character(dfs$Organization[1:10])
 dfs <- dplyr::filter(df, Organization %in% top) %>% group_by(Year, Organization) %>% summarise(Costs = sum(Price)/1e6) %>% arrange(Year)
