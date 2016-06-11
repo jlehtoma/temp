@@ -73,9 +73,10 @@ write.csv(dfs, file = "table/cost_by_category.csv", quote = F, row.names = F)
 dfs <- df %>% group_by(Year, Organization) %>% summarise(Costs = sum(Price, na.rm = TRUE)/1e6) %>% arrange(Year) %>% spread(Year, Costs)
 dfs[is.na(dfs)] = 0
 dfs$Total = rowSums(dfs[, as.character(2010:2015)], na.rm = TRUE)
+dfs[, as.character(c(2010:2015))] = round(dfs[, as.character(c(2010:2015))], 3)
 dfs$Percentage = round(100 * dfs$Total/sum(dfs$Total), 1)
 dfs = dfs %>% arrange(desc(Percentage))
-names(dfs) = c("Organization", paste(as.character(2010:2015), "(MEUR)"), "Total (MEUR)", "Percent (%)")
+names(dfs) = c("Organization", paste(as.character(2010:2015), "\n(MEUR)"), "Total (MEUR)", "Percent (%)")
 write.csv(dfs, file = "table/cost_by_organization_year.csv", quote = F, row.names = F)
 
 dfs <- df %>% group_by(Year, Publisher) %>% summarise(Costs = sum(Price, na.rm = TRUE)/1e6) %>% arrange(Year) %>% spread(Year, Costs)
@@ -158,7 +159,7 @@ Total costs paid to scientific publishers by Finland 2010-2015. The annual incre
 dfs = df %>% group_by(Year) %>% summarise(Costs = sum(Price)/1e6) 
 p <- ggplot(dfs, aes(x = Year, y = Costs)) +
        geom_bar(stat = "identity", fill = "lightgray", color = "black") + ggtitle("Total costs for Finland") +
-       geom_text(data = dfs[-1,], aes(x = Year, y = 2,
+       geom_text(data = dfs[-1,], aes(x = Year, y = 1.5,
      label = paste("+", round(100 * diff(dfs$Costs)/dfs$Costs[-length(dfs$Costs)], 1), "%", sep = "")   ),
      	   size = 6) +
        scale_x_continuous(breaks = 2010:2015, labels = c(2010:2015)) + 
@@ -171,7 +172,7 @@ dfs = df %>% group_by(Publisher) %>% summarise(Costs = sum(Price, na.rm = TRUE))
 
 Top-10 publishers (out of `r nrow(dfs)`) correspond to `r round(100 * sum(dfs[["Costs"]][1:10])/sum(dfs[["Costs"]]))`% of the overall costs.
 
-```{r foi-timebypublisher2, message=FALSE, echo=FALSE, fig.width=15, fig.heigth=5}
+```{r foi-timebypublisher2, message=FALSE, echo=FALSE, fig.width=12, fig.heigth=4}
 top.publishers <- as.character(dfs$Publisher[1:10])
 dfs <- dplyr::filter(df, Publisher %in% top.publishers) %>% group_by(Year, Publisher) %>% summarise(Costs = sum(Price)/1e6) %>% arrange(Year)
 dfs$Publisher <- factor(dfs$Publisher, levels = top.publishers)
