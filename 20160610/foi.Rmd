@@ -74,12 +74,11 @@ dfs <- df %>% group_by(Year, Organization) %>% summarise(Costs = sum(Price, na.r
 dfs[is.na(dfs)] = 0
 dfs$Organization = as.character(dfs$Organization)
 dfs$Total = rowSums(dfs[, as.character(2010:2015)], na.rm = TRUE)
-dfs$Percentage = round(100 * dfs$Total/sum(dfs$Total), 2)
-dfs[, as.character(c(2010:2015))] = round(dfs[, as.character(c(2010:2015))], 2)
-dfs = rbind(dfs, c("Total", round(colSums(dfs[, c(as.character(c(2010:2015)), "Total")]), 2)))
+dfs$Percentage = 100 * dfs$Total/sum(dfs$Total)
 dfs = dfs %>% arrange(desc(Percentage))
-dfs$Total = round(as.numeric(dfs$Total), 1)
+dfs = rbind(c("Total", colSums(dfs[, -1])), dfs)
 names(dfs) = c("Organization (costs in MEUR)", as.character(2010:2015), "Total", "Percent (%)")
+for (i in 2:ncol(dfs)) {dfs[,i] = round(as.numeric(unlist(dfs[,i])),2)}
 write.csv(dfs, file = "table/cost_by_organization_year.csv", quote = F, row.names = F)
 
 dfs <- df %>% group_by(Year, Publisher) %>% summarise(Costs = sum(Price, na.rm = TRUE)/1e6) %>% arrange(Year) %>% spread(Year, Costs)
