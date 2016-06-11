@@ -89,7 +89,7 @@ dfs$Total = rowSums(dfs[, as.character(2010:2015)], na.rm = TRUE)
 dfs$Percentage = 100 * dfs$Total/sum(dfs$Total)
 dfs = dfs %>% arrange(desc(Percentage))
 dfs = rbind(c("Total", colSums(dfs[, -1])), dfs)
-dfs$Publisher = substr(dfs$Publisher, 1, 40)
+dfs$Publisher = substr(dfs$Publisher, 1, 60)
 names(dfs) = c("Publisher (costs in MEUR)", as.character(2010:2015), "Total", "%")
 for (i in 2:ncol(dfs)) {dfs[,i] = round(as.numeric(unlist(dfs[,i])),2)}
 write.csv(dfs, file = "table/cost_by_publisher_year.csv", quote = F, row.names = F)
