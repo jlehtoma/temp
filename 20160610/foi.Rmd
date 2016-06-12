@@ -1,11 +1,6 @@
----
-title: "Subscription costs to scientific publishers in Finland 2010-2015"
-author: Leo Lahti
-date: "`r Sys.Date()`"
-output: 
-  md_document:
-    variant: markdown_github
----
+# Subscription costs to scientific publishers in Finland 2010-2015
+
+Leo Lahti (June 13, 2016) 
 
 
 ```{r foi-init, message=FALSE, echo=FALSE}
