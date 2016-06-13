@@ -1,0 +1,45 @@
+```{r setup,message=FALSE}
+library(dplyr)
+library(DT)
+library(knitr)
+library(readxl)
+```
+
+## Academic output in countries comparable to Finland in size
+
+```{r process-data}
+scimag_data <- lapply(2010:2015,
+                      function(x) {
+                        path <- paste0("scimagojr_", x, ".xlsx")
+                        dat <- readxl::read_excel(path, "Sheet1")
+                        dat$year <- x
+                        return(dat)
+                        })
+
+scimag_data <- dplyr::bind_rows(scimag_data)
+names(scimag_data) <- gsub(" ", "_", tolower(names(scimag_data)))
+names(scimag_data) <- gsub("-", "_", names(scimag_data))
+```
+
+```{r show-data}
+DT::datatable(scimag_data, class = 'cell-border stripe')
+```
+
+
+### Per country
+```{r per-country,results='asis'}
+per_country <- scimag_data %>%
+  dplyr::filter(country %in% c("Finland", "Austria", "New Zealand")) %>%
+  dplyr::group_by(country) %>%
+  dplyr::summarise(
+    tot_documents = sum(citable_documents),
+    tot_citations = sum(citations),
+    tot_self_citations = sum(self_citations),
+    mean_citations_per_doc = mean(citations_per_document)
+  )
+knitr::kable(per_country)
+```
+
+
+
+
